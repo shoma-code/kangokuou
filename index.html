@@ -4444,7 +4444,7 @@ const collectionSort=document.getElementById('collectionSort');
 const collectionViewMode=document.getElementById('collectionViewMode');
 const collectionFooterText=document.getElementById('collectionFooterText');
 
-const CARD_DATABASE=[{"no":1,"name":"ただの人","type":"人タイプ","effect":"ただの人。何も出来ない。このカードはデッキに何枚でも入れられる。","atk":1,"hp":2,"rarity":"C"},{"no":2,"name":"強い人","type":"人タイプ","effect":"すごく強い人。","atk":4,"hp":3,"rarity":"C"},{"no":3,"name":"陽気な人","type":"人タイプ","effect":"陽気すぎてルールを知らないので出したターンから攻撃できる。","atk":1,"hp":1,"rarity":"C"},{"no":4,"name":"食いしん坊キング","type":"人タイプ","effect":"強い!んだけど2ターンに1回しか攻撃できない。このカードの召喚にはCOUNTを2使う。","atk":7,"hp":15,"rarity":"SR"},{"no":5,"name":"ただのDQN","type":"人タイプ","effect":"DQNだけど掃除が好き。","atk":2,"hp":2,"rarity":"C"},{"no":6,"name":"リセットボタン","type":"道具タイプ","effect":"手札やバトル場のカードを全て山札に戻してお互いに手札を5枚引く。","atk":null,"hp":null,"rarity":"R"},{"no":7,"name":"Deoxyribo Nucleic Acid","type":"道具タイプ","effect":"遺伝子組み換えで人、神、クリーチャー、道具、空の中から1つタイプがランダムで選ばれ、山札からそのタイプのカード2枚を手札に加え、その後手札を2枚墓地に送る。","atk":null,"hp":null,"rarity":"UC"},{"no":8,"name":"ベルリンの壁","type":"道具タイプ","effect":"大きな壁、3ターンの間どんな攻撃が来ようと無効化する。このカードを使うにはCOUNTを1使う。","atk":null,"hp":null,"rarity":"UC"},{"no":9,"name":"きびだんご","type":"道具タイプ","effect":"相手のバトル場のカード1枚を選んで奪う（神タイプカードは無理）（手札に戻すことができない）。このカードを使うにはCOUNTを1使う。","atk":null,"hp":null,"rarity":"C"},{"no":10,"name":"UN〇!","type":"道具タイプ","effect":"自分の手札を強制的に1枚にする。（このカードを引いた瞬間に強制的に使用）","atk":null,"hp":null,"rarity":"C"},{"no":11,"name":"ガルモン","type":"クリーチャータイプ","effect":"おやこあい、1ターン2回攻撃できる。2回目の攻撃はATKが半分になる。このカードの召喚にはCOUNTを1使う。","atk":2,"hp":5,"rarity":"SR"},{"no":12,"name":"ただの馬","type":"クリーチャータイプ","effect":"ヒ、ヒン！馬だぞ！","atk":2,"hp":2,"rarity":"C"},{"no":13,"name":"爆発クロコダイル","type":"空タイプ","effect":"[空タイプ]以外のバトル場のカード全てに3ダメージ。","atk":3,"hp":2,"rarity":"R"},{"no":14,"name":"ドラゴンナイト","type":"人タイプ","effect":"クリーチャータイプにダメージ2倍","atk":3,"hp":2,"rarity":"R"},{"no":15,"name":"魔剣し","type":"人タイプ","effect":"魔剣の力を持つ者だが、何故か裸","atk":5,"hp":1,"rarity":"UC"},{"no":16,"name":"ヤンおばさん","type":"人タイプ","effect":"\"いいもの持ってるじゃない！\":バトル場に出したとき、相手の手札を見ずに2枚選び、相手の手札から奪い、自分の手札に加える。このカードの召喚にはCOUNTを2使う。","atk":1,"hp":10,"rarity":"SR"},{"no":17,"name":"大天使","type":"空タイプ","effect":"かつては希望を運び、いつかは呪いを振りまいた。『悪魔』に対してダメージ2倍。","atk":3,"hp":5,"rarity":"SR"},{"no":18,"name":"パワースイッチ","type":"道具タイプ","effect":"自分のカード1枚のATKとHPを入れ替える","atk":null,"hp":null,"rarity":"UC"},{"no":19,"name":"PARASITE","type":"クリーチャータイプ","effect":"パラサイト。人タイプカードを攻撃すると与えたダメージ分このカードのHPを回復する。","atk":1,"hp":3,"rarity":"C"},{"no":20,"name":"黄金のPARASITE","type":"クリーチャータイプ","effect":"金色に光る色違いの激レアパラサイト。人タイプを攻撃すると与えたダメージ分このカードは回復する。このカードの召喚にはCOUNTを2使う。","atk":5,"hp":13,"rarity":"SR"},{"no":21,"name":"ぼちぼちな墓地","type":"道具タイプ","effect":"ただの墓地。神、道具タイプカード以外は墓地から1枚を手札に戻せる。","atk":null,"hp":null,"rarity":"UC"},{"no":22,"name":"初音三ク","type":"人タイプ","effect":"バーチャルアイドル！バーチャルなので相手の手札をカンニングできる。","atk":1,"hp":1,"rarity":"UC"},{"no":23,"name":"緋の目","type":"道具タイプ","effect":"制約と誓約。ライフを1削る代わりに自分のカード全てのATKを+2する。","atk":null,"hp":null,"rarity":"UC"},{"no":24,"name":"おばけちゃん","type":"クリーチャータイプ","effect":"トリックオアトリート！このカードを出したとき、山札から3枚カードを引き、手札からカード2枚を墓地に送る。","atk":0,"hp":1,"rarity":"C"},{"no":25,"name":"先輩の圧力","type":"クリーチャータイプ","effect":"あのさぁ...このカードをバトル場に出したとき、3ターンの間、空いてのカードの効果が発動されなくなる（このカードがバトル場を離れても効果は続く）。このカードの召喚にはCOUNTを1使う。","atk":2,"hp":3,"rarity":"R"},{"no":26,"name":"悪魔","type":"空タイプ","effect":"悪魔です。『大天使』にダメージ2倍","atk":4,"hp":4,"rarity":"R"},{"no":27,"name":"ボス","type":"神タイプ","effect":"①場に出た時、手札が上限枚数になるように墓地からカードを手札に戻す。②自分のエンドステップ毎に手札を1枚捨てる。③自分のスタートステップ毎に墓地からカードを1枚手札に戻す。④自分のバトル場のカードがバトル場を離れるとき、自分の手札を2枚(対象が神カードなら3枚)墓地に置くことでバトル場に戻せる。この効果発動後、そのカードのHPをそのカードの元のHP分回復する。この効果はこのカードが対象の時にも発動する。この効果は重複しない。⑤自分がカードを捨てた時、その枚数分相手の山札を削る。⑥このカードがどこからでも墓地に置かれた時、墓地のカードをすべて山札に戻し、山札をシャッフルし、ライフを1回復する。この効果は、他のすべての効果発動後に発動する。また、この効果の発動待機時、この効果が発動されるまで自分は負けない。⑦降臨:このカードを召喚するとき、バトル場に『梅原』がいるなら、その召喚に必要な生贄の数を1体のみにできる。ただし、この効果を使ったターンは自分のすべてのカードの効果が使えなくなり、そのターンは自分のカードは攻撃できない。","atk":10,"hp":28,"rarity":"LR"},{"no":28,"name":"ヘビースモーカー","type":"クリーチャータイプ","effect":"自分のカードの封印をすべて外す。","atk":3,"hp":2,"rarity":"SR"},{"no":29,"name":"梅原","type":"人タイプ","effect":"お互いに手札を2枚ずつ選んで墓地に置く。このカードの召喚にはCOUNTを1使う。","atk":3,"hp":1,"rarity":"SR"},{"no":30,"name":"アウシュビッツこうゆうかん八潮校","type":"道具タイプ","effect":"相手のバトル場の『ボス』をすべて封印する。このカードを使うにはCOUNTを1使う。","atk":null,"hp":null,"rarity":"SR"},{"no":31,"name":"台ファン結成","type":"道具タイプ","effect":"自分の山札から全ての『台の翼神竜』というカードを手札に加える。その後、1枚を墓地に、1枚を手札に残し、1枚をバトル場に出す。この効果は先に書いてあることから処理していく。このカードはデッキに一枚しか入れられない。このカードを使うにはCOUNTを2使う。","atk":null,"hp":null,"rarity":"LR"},{"no":32,"name":"台の翼神竜","type":"神タイプ","effect":"説明不要の最強の神。このカードをバトル場に出したとき、自分のライフを好きな数減らしてよい。そうしたとき減らした数+1分このカードのATKとHPに掛ける。このカードは神タイプカード以外の効果は受けず、召喚は無効化されず、神タイプカード以外のカードは無視してダイレクトアタックできる。","atk":20,"hp":20,"rarity":"LR"},{"no":33,"name":"チキンとゾンビ","type":"クリーチャータイプ","effect":"地獄から蘇ったジョッキー。墓地にいるカードの枚数分ATKが上がる。","atk":0,"hp":2,"rarity":"UC"},{"no":34,"name":"オレレレレレレンの実","type":"道具タイプ","effect":"美味しい木の実。バトル場のカード1枚を全回復。","atk":null,"hp":null,"rarity":"R"},{"no":35,"name":"ホーリーアーチャー","type":"空タイプ","effect":"ホーリーなアーチャー。出したとき、相手のバトル場のカード1枚を確定で破壊する。このカードの召喚にはCOUNTを1使う。","atk":1,"hp":3,"rarity":"SR"},{"no":36,"name":"逆針スズメバチ","type":"空タイプ","effect":"逆が好きなので後攻の場合、ATK4、HP8になる。","atk":1,"hp":4,"rarity":"UC"},{"no":37,"name":"素直ミツバチ","type":"空タイプ","effect":"素直なので先攻の場合、ATK4、HP6になる。","atk":1,"hp":2,"rarity":"UC"},{"no":38,"name":"優しい女神","type":"道具タイプ","effect":"ライフを5追加する代わりに自分のバトル場のカードを全て墓地に送る。その後、これからバトル場に出すカードのATK-2をする。このカードを使うにはCOUNTを1使う。","atk":null,"hp":null,"rarity":"UC"},{"no":39,"name":"拒食症キング","type":"人タイプ","effect":"瘦せすぎている。足は速いので出したターンに攻撃でき、最初の1回だけ1ターンに2回攻撃できる。しかし、疲れてしまうのでそれ以降は手札に戻る。","atk":3,"hp":5,"rarity":"SR"},{"no":40,"name":"ダブルス","type":"道具タイプ","effect":"この道具を使ったターンは2枚まで人、クリーチャー、空、神タイプカードをバトル場に出すことができる。","atk":null,"hp":null,"rarity":"SR"},{"no":41,"name":"トランプマン","type":"クリーチャータイプ","effect":"本体はハート。1回だけダメージをくらわない。","atk":2,"hp":1,"rarity":"R"},{"no":42,"name":"起死回生","type":"道具タイプ","effect":"このカードはデッキに1枚まで入れられる。ライフが1の時に使え、山札から5枚手札に加えることができる。また、このカードを使ったターンだけバトル場の上限までカードを出せる。","atk":null,"hp":null,"rarity":"SR"},{"no":43,"name":"ヤナギーの天空竜","type":"神タイプ","effect":"①1ターンに3回攻撃できる。二回目の攻撃はATKが+2、三回目の攻撃はATKが+3になる。②5ターンに1度、相手のカードがバトル場に出るのを無効化する。③\"お前らさぁ...悪ぃけど...洒落になんねぇからぁ！\":洒落にならな過ぎて3ターンに1度、自分がゲームに負けることを無効化する。","atk":5,"hp":30,"rarity":"LR"},{"no":44,"name":"ミスターガーダー","type":"人タイプ","effect":"クリーチャータイプからのダメージを無効化する。","atk":1,"hp":3,"rarity":"UC"},{"no":45,"name":"反旗を翻しマン","type":"人タイプ","effect":"人タイプのカード1枚のHP1回復できる。神タイプからのダメージを無効化する。","atk":1,"hp":3,"rarity":"R"},{"no":46,"name":"翼神竜の鏡","type":"道具タイプ","effect":"ライフを1回復し、自分の山札の中から1枚を選び、墓地に置く。そうしたら山札の中から道具タイプカードを1枚手札に加える。","atk":null,"hp":null,"rarity":"SR"},{"no":47,"name":"翼神竜の玉","type":"道具タイプ","effect":"自分の手札のカード3枚をバトルから除外することでどこからでも『台の翼神竜』を手札に加える。","atk":null,"hp":null,"rarity":"SR"},{"no":48,"name":"いとしょー","type":"人タイプ","effect":"グダグダ。手札のカードを1枚選び、山札の一番下に置き、山札の上から3枚見て、一枚選んで手札に加える。ただし加えられるカードは人タイプカードか神タイプカードのみ。","atk":1,"hp":1,"rarity":"C"}];
+const CARD_DATABASE=[{"no":1,"name":"ただの人","type":"人タイプ","effect":"ただの人。何も出来ない。このカードはデッキに何枚でも入れられる。","atk":1,"hp":2,"rarity":"C"},{"no":2,"name":"強い人","type":"人タイプ","effect":"すごく強い人。","atk":4,"hp":3,"rarity":"C"},{"no":3,"name":"陽気な人","type":"人タイプ","effect":"陽気すぎてルールを知らないので出したターンから攻撃できる。","atk":1,"hp":1,"rarity":"C"},{"no":4,"name":"食いしん坊キング","type":"人タイプ","effect":"強い!んだけど2ターンに1回しか攻撃できない。このカードの召喚にはCOUNTを2使う。","atk":7,"hp":15,"rarity":"SR"},{"no":5,"name":"ただのDQN","type":"人タイプ","effect":"DQNだけど掃除が好き。","atk":2,"hp":2,"rarity":"C"},{"no":6,"name":"リセットボタン","type":"道具タイプ","effect":"手札やバトル場のカードを全て山札に戻してお互いに手札を5枚引く。","atk":null,"hp":null,"rarity":"R"},{"no":7,"name":"Deoxyribo Nucleic Acid","type":"道具タイプ","effect":"遺伝子組み換えで人、神、クリーチャー、道具、空の中から1つタイプがランダムで選ばれ、山札からそのタイプのカード2枚を手札に加え、その後手札を1枚墓地に送る。COUNTを1増やす。","atk":null,"hp":null,"rarity":"UC"},{"no":8,"name":"ベルリンの壁","type":"道具タイプ","effect":"大きな壁、3ターンの間どんな攻撃が来ようと無効化する。このカードを使うにはCOUNTを1使う。","atk":null,"hp":null,"rarity":"UC"},{"no":9,"name":"きびだんご","type":"道具タイプ","effect":"相手のバトル場のカード1枚を選んで奪う（神タイプカードは無理）（手札に戻すことができない）。このカードを使うにはCOUNTを1使う。","atk":null,"hp":null,"rarity":"C"},{"no":10,"name":"UN〇!","type":"道具タイプ","effect":"自分の手札を強制的に1枚にする。（このカードを引いた瞬間に強制的に使用）","atk":null,"hp":null,"rarity":"C"},{"no":11,"name":"ガルモン","type":"クリーチャータイプ","effect":"おやこあい、1ターン2回攻撃できる。2回目の攻撃はATKが半分になる。このカードの召喚にはCOUNTを1使う。","atk":2,"hp":5,"rarity":"SR"},{"no":12,"name":"ただの馬","type":"クリーチャータイプ","effect":"ヒ、ヒン！馬だぞ！","atk":2,"hp":2,"rarity":"C"},{"no":13,"name":"爆発クロコダイル","type":"空タイプ","effect":"[空タイプ]以外のバトル場のカード全てに3ダメージ。","atk":3,"hp":2,"rarity":"R"},{"no":14,"name":"ドラゴンナイト","type":"人タイプ","effect":"クリーチャータイプにダメージ2倍","atk":3,"hp":2,"rarity":"R"},{"no":15,"name":"魔剣し","type":"人タイプ","effect":"魔剣の力を持つ者だが、何故か裸","atk":5,"hp":1,"rarity":"UC"},{"no":16,"name":"ヤンおばさん","type":"人タイプ","effect":"\"いいもの持ってるじゃない！\":バトル場に出したとき、相手の手札を見ずに2枚選び、相手の手札から奪い、自分の手札に加える。このカードの召喚にはCOUNTを2使う。","atk":1,"hp":10,"rarity":"SR"},{"no":17,"name":"大天使","type":"空タイプ","effect":"かつては希望を運び、いつかは呪いを振りまいた。『悪魔』に対してダメージ2倍。","atk":3,"hp":5,"rarity":"SR"},{"no":18,"name":"パワースイッチ","type":"道具タイプ","effect":"自分のカード1枚のATKとHPを入れ替える","atk":null,"hp":null,"rarity":"UC"},{"no":19,"name":"PARASITE","type":"クリーチャータイプ","effect":"パラサイト。人タイプカードを攻撃すると与えたダメージ分このカードのHPを回復する。","atk":1,"hp":3,"rarity":"C"},{"no":20,"name":"黄金のPARASITE","type":"クリーチャータイプ","effect":"金色に光る色違いの激レアパラサイト。人タイプを攻撃すると与えたダメージ分このカードは回復する。このカードの召喚にはCOUNTを2使う。","atk":5,"hp":13,"rarity":"SR"},{"no":21,"name":"ぼちぼちな墓地","type":"道具タイプ","effect":"ただの墓地。神、道具タイプカード以外は墓地から1枚を手札に戻せる。","atk":null,"hp":null,"rarity":"UC"},{"no":22,"name":"初音三ク","type":"人タイプ","effect":"バーチャルアイドル！バーチャルなので相手の手札をカンニングできる。","atk":1,"hp":1,"rarity":"UC"},{"no":23,"name":"緋の目","type":"道具タイプ","effect":"制約と誓約。ライフを1削る代わりに自分のカード全てのATKを+2する。","atk":null,"hp":null,"rarity":"UC"},{"no":24,"name":"おばけちゃん","type":"クリーチャータイプ","effect":"トリックオアトリート！このカードを出したとき、山札から3枚カードを引き、手札からカード2枚を墓地に送る。","atk":0,"hp":1,"rarity":"C"},{"no":25,"name":"先輩の圧力","type":"クリーチャータイプ","effect":"あのさぁ...このカードをバトル場に出したとき、3ターンの間、空いてのカードの効果が発動されなくなる（このカードがバトル場を離れても効果は続く）。このカードの召喚にはCOUNTを1使う。","atk":2,"hp":3,"rarity":"R"},{"no":26,"name":"悪魔","type":"空タイプ","effect":"悪魔です。『大天使』にダメージ2倍","atk":4,"hp":4,"rarity":"R"},{"no":27,"name":"ボス","type":"神タイプ","effect":"①場に出た時、手札が上限枚数になるように墓地からカードを手札に戻す。②自分のエンドステップ毎に手札を1枚捨てる。③自分のスタートステップ毎に墓地からカードを1枚手札に戻す。④自分のバトル場のカードがバトル場を離れるとき、自分の手札を2枚(対象が神カードなら3枚)墓地に置くことでバトル場に戻せる。この効果発動後、そのカードのHPをそのカードの元のHP分回復する。この効果はこのカードが対象の時にも発動する。この効果は重複しない。⑤自分がカードを捨てた時、その枚数分相手の山札を削る。⑥このカードがどこからでも墓地に置かれた時、墓地のカードをすべて山札に戻し、山札をシャッフルし、ライフを1回復する。この効果は、他のすべての効果発動後に発動する。また、この効果の発動待機時、この効果が発動されるまで自分は負けない。⑦降臨:このカードを召喚するとき、バトル場に『梅原』がいるなら、その召喚に必要な生贄の数を1体のみにできる。ただし、この効果を使ったターンは自分のすべてのカードの効果が使えなくなり、そのターンは自分のカードは攻撃できない。","atk":10,"hp":28,"rarity":"LR"},{"no":28,"name":"ヘビースモーカー","type":"クリーチャータイプ","effect":"自分のカードの封印をすべて外す。","atk":3,"hp":2,"rarity":"SR"},{"no":29,"name":"梅原","type":"人タイプ","effect":"お互いに手札を2枚ずつ選んで墓地に置く。このカードの召喚にはCOUNTを1使う。","atk":3,"hp":1,"rarity":"SR"},{"no":30,"name":"アウシュビッツこうゆうかん八潮校","type":"道具タイプ","effect":"相手のバトル場の『ボス』をすべて封印する。このカードを使うにはCOUNTを1使う。","atk":null,"hp":null,"rarity":"SR"},{"no":31,"name":"台ファン結成","type":"道具タイプ","effect":"自分の山札から全ての『台の翼神竜』というカードを手札に加える。その後、1枚を墓地に、1枚を手札に残し、1枚をバトル場に出す。この効果は先に書いてあることから処理していく。このカードはデッキに一枚しか入れられない。このカードを使うにはCOUNTを2使う。","atk":null,"hp":null,"rarity":"LR"},{"no":32,"name":"台の翼神竜","type":"神タイプ","effect":"説明不要の最強の神。このカードをバトル場に出したとき、自分のライフを好きな数減らしてよい。そうしたとき減らした数+1分このカードのATKとHPに掛ける。このカードは神タイプカード以外の効果は受けず、召喚は無効化されず、神タイプカード以外のカードは無視してダイレクトアタックできる。","atk":20,"hp":20,"rarity":"LR"},{"no":33,"name":"チキンとゾンビ","type":"クリーチャータイプ","effect":"地獄から蘇ったジョッキー。墓地にいるカードの枚数分ATKが上がる。","atk":0,"hp":2,"rarity":"UC"},{"no":34,"name":"オレレレレレレンの実","type":"道具タイプ","effect":"美味しい木の実。バトル場のカード1枚を全回復。","atk":null,"hp":null,"rarity":"R"},{"no":35,"name":"ホーリーアーチャー","type":"空タイプ","effect":"ホーリーなアーチャー。出したとき、相手のバトル場のカード1枚を確定で破壊する。このカードの召喚にはCOUNTを1使う。","atk":1,"hp":3,"rarity":"SR"},{"no":36,"name":"逆針スズメバチ","type":"空タイプ","effect":"逆が好きなので後攻の場合、ATK4、HP8になる。","atk":1,"hp":4,"rarity":"UC"},{"no":37,"name":"素直ミツバチ","type":"空タイプ","effect":"素直なので先攻の場合、ATK4、HP6になる。","atk":1,"hp":2,"rarity":"UC"},{"no":38,"name":"優しい女神","type":"道具タイプ","effect":"ライフを5追加する代わりに自分のバトル場のカードを全て墓地に送る。その後、これからバトル場に出すカードのATK-2をする。このカードを使うにはCOUNTを1使う。","atk":null,"hp":null,"rarity":"UC"},{"no":39,"name":"拒食症キング","type":"人タイプ","effect":"瘦せすぎている。足は速いので出したターンに攻撃でき、最初の1回だけ1ターンに2回攻撃できる。しかし、疲れてしまうのでそれ以降は手札に戻る。","atk":3,"hp":5,"rarity":"SR"},{"no":40,"name":"ダブルス","type":"道具タイプ","effect":"この道具を使ったターンは2枚まで人、クリーチャー、空、神タイプカードをバトル場に出すことができる。","atk":null,"hp":null,"rarity":"SR"},{"no":41,"name":"トランプマン","type":"クリーチャータイプ","effect":"本体はハート。1回だけダメージをくらわない。","atk":2,"hp":1,"rarity":"R"},{"no":42,"name":"起死回生","type":"道具タイプ","effect":"このカードはデッキに1枚まで入れられる。ライフが1の時に使え、山札から5枚手札に加えることができる。また、このカードを使ったターンだけバトル場の上限までカードを出せる。","atk":null,"hp":null,"rarity":"SR"},{"no":43,"name":"ヤナギーの天空竜","type":"神タイプ","effect":"①1ターンに3回攻撃できる。二回目の攻撃はATKが+2、三回目の攻撃はATKが+3になる。②5ターンに1度、相手のカードがバトル場に出るのを無効化する。③\"お前らさぁ...悪ぃけど...洒落になんねぇからぁ！\":洒落にならな過ぎて3ターンに1度、自分がゲームに負けることを無効化する。","atk":5,"hp":30,"rarity":"LR"},{"no":44,"name":"ミスターガーダー","type":"人タイプ","effect":"クリーチャータイプからのダメージを無効化する。","atk":1,"hp":3,"rarity":"UC"},{"no":45,"name":"反旗を翻しマン","type":"人タイプ","effect":"人タイプのカード1枚のHP1回復できる。神タイプからのダメージを無効化する。","atk":1,"hp":3,"rarity":"R"},{"no":46,"name":"翼神竜の鏡","type":"道具タイプ","effect":"ライフを1回復し、自分の山札の中から1枚を選び、墓地に置く。そうしたら山札の中から道具タイプカードを1枚手札に加える。","atk":null,"hp":null,"rarity":"SR"},{"no":47,"name":"翼神竜の玉","type":"道具タイプ","effect":"自分の手札のカード3枚をバトルから除外することでどこからでも『台の翼神竜』を手札に加える。","atk":null,"hp":null,"rarity":"SR"},{"no":48,"name":"いとしょー","type":"人タイプ","effect":"グダグダ。手札のカードを1枚選び、山札の一番下に置き、山札の上から3枚見て、一枚選んで手札に加える。ただし加えられるカードは人タイプカードか神タイプカードのみ。","atk":1,"hp":1,"rarity":"C"},{"no":49,"name":"小林","type":"人タイプ","effect":"バトル場に出たとき、三つのうちの一つから選択する。『いとしょー』『大倉真』がバトル場にいるとき、すべてを使用できる。①相手の人タイプカード全てを破壊する。②クリーチャータイプカードをHPができる限り合計20以内になるように墓地に置く。③神タイプカードを一枚除外する。この効果は無効化されない。このカードの召喚にはCOUNTを2使う。","atk":10,"hp":10,"rarity":"R"},{"no":50,"name":"大倉真","type":"人タイプ","effect":"バトル場に出たとき自分のライフを1減らすことで、山札の上から1枚引き、COUNTを1増やす。このカードがバトル場にいるとき、自分のライフが減った時、COUNTを1増やしてもよい。","atk":3,"hp":1,"rarity":"SR"},{"no":51,"name":"埼玉","type":"道具タイプ","effect":"相手のバトル場の『台の翼神龍』を封印する。","atk":null,"hp":null,"rarity":"UC"}];
 const CARD_BY_NO=new Map(CARD_DATABASE.map(card=>[String(card.no),card]));
 
 let currentPlayerData=null;
@@ -5294,6 +5294,13 @@ const PRACTICE_CPU_CONFIG={
     deckName:'初級CPUデッキ',
     summary:'ただの人 ×22 / 強い人 ×3 / 陽気な人 ×3 / Deoxyribo Nucleic Acid ×3 / UN〇! ×3 / ただの馬 ×3 / ガルモン ×3',
     cards:{1:22,2:3,3:3,7:3,10:3,12:3,11:3}
+  },
+  2:{
+    name:'中級',
+    en:'INTERMEDIATE',
+    deckName:'中級CPUデッキ',
+    summary:'ボス ×3 / 梅原 ×3 / いとしょー ×3 / 先輩の圧力 ×3 / おばけちゃん ×3 / ヘビースモーカー ×3 / 大倉真 ×2 / ホーリーアーチャー ×2 / 翼神竜の鏡 ×3 / ダブルス ×3 / Deoxyribo Nucleic Acid ×3 / ベルリンの壁 ×3 / きびだんご ×2 / ぼちぼちな墓地 ×3 / オレレレレレレンの実 ×1',
+    cards:{27:3,29:3,48:3,25:3,24:3,28:3,50:2,35:2,46:3,40:3,7:3,8:3,9:2,21:3,34:1}
   }
 };
 function getPracticeCpuConfig(stageIndex){
@@ -5615,6 +5622,8 @@ function makeBattleUnit(card,owner,method='summon'){
     uid:currentBattleSession.nextUnitId++,
     card,
     owner,
+    originalOwner:owner,
+    controlChangedByKibidango:false,
     baseAtk:Number(card.atk)||0,
     baseHp:Number(card.hp)||0,
     currentHp:Number(card.hp)||0,
@@ -6073,9 +6082,14 @@ function resolveResetButton(){
   const p=currentSideState('player');
   const e=currentSideState('enemy');
 
-  // 使用中のリセットボタン自体はすでに墓地。その他の手札・場を山札へ戻す。
-  p.deck.push(...p.hand,...p.field.map(u=>u.card));
-  e.deck.push(...e.hand,...e.field.map(u=>u.card));
+  // 使用中のリセットボタン自体はすでに墓地。手札は現在の側、場のカードは元の所有者の山札へ戻す。
+  p.deck.push(...p.hand);
+  e.deck.push(...e.hand);
+  for(const unit of [...p.field,...e.field]){
+    const home=unit.originalOwner||unit.owner;
+    if(home==='enemy')e.deck.push(unit.card);
+    else p.deck.push(unit.card);
+  }
   p.hand.length=0;p.field.length=0;
   e.hand.length=0;e.field.length=0;
 
@@ -6101,11 +6115,15 @@ function resolveDNA(){
   }
   battleLogAdd(`DNA // ランダムタイプ：${type} // ${found.length}枚を山札から手札へ`);
 
-  const need=Math.min(2,state.hand.length);
+  const need=Math.min(1,state.hand.length);
   if(need>0){
     currentBattleSession.pendingDiscardCount=need;
     currentBattleSession.pendingDiscardReason='DNA';
-    setPendingMessage(`DNA：手札から墓地へ送るカードをあと${need}枚選んでください`,true);
+    currentBattleSession.pendingDiscardContinuation='dnaCount';
+    setPendingMessage('DNA：手札から墓地へ送るカードを1枚選んでください',true);
+  }else{
+    currentBattleSession.playerCount+=1;
+    battleLogAdd('DNA // COUNT +1');
   }
 }
 function resolveKibidangoTarget(uid){
@@ -6116,7 +6134,9 @@ function resolveKibidangoTarget(uid){
   if(idx<0)return;
 
   const [unit]=currentBattleSession.enemyField.splice(idx,1);
+  if(!unit.originalOwner)unit.originalOwner=unit.owner;
   unit.owner='player';
+  unit.controlChangedByKibidango=true;
   unit.entryMethod='effect';
   unit.summonedTurn=currentBattleSession.turnNumber;
   unit.summonedOwnerTurn=currentBattleSession.playerOwnTurn;
@@ -8019,8 +8039,8 @@ deleteSaveBtn.addEventListener('click',()=>{
 document.getElementById('effectToggle').addEventListener('click',function(){effects=!effects;this.classList.toggle('on',effects);this.setAttribute('aria-checked',String(effects));document.querySelectorAll('.fog,.grain').forEach(x=>x.style.display=effects?'':'none')});
 document.getElementById('motionToggle').addEventListener('click',function(){document.body.classList.toggle('reduce-motion');const on=document.body.classList.contains('reduce-motion');this.classList.toggle('on',on);this.setAttribute('aria-checked',String(on))});
 
-/* ===== Cards No.026〜048 battle logic extension ===== */
-Object.assign(STARTER_COUNT_COST,{29:1,30:1,31:2,35:1,38:1});
+/* ===== Cards No.026〜051 battle logic extension ===== */
+Object.assign(STARTER_COUNT_COST,{29:1,30:1,31:2,35:1,38:1,49:2});
 const EXT_HAND_LIMIT=7; // 現行ルールに明記がないため、《ボス》の「手札上限」は7枚として扱う。
 
 function ensureExtendedBattleState(){
@@ -8262,11 +8282,12 @@ function extMoveUnitToGrave(owner,uid,reason='破壊',allowBossSave=true){
   const index=state.field.findIndex(u=>u.uid===uid);
   if(index<0)return null;
   const unit=state.field[index];
+  const homeOwner=unit.originalOwner||owner;
   const bossActiveBefore=extHasActiveBoss(owner);
   const sourceEffectDisabled=unit.sealed||effectsSuppressed(owner);
   state.field.splice(index,1);
-  extSendCardToGrave(owner,unit.card,`が${reason}され`,sourceEffectDisabled);
-  if(allowBossSave&&bossActiveBefore&&!effectsSuppressed(owner)){
+  extSendCardToGrave(homeOwner,unit.card,`が${reason}され`,sourceEffectDisabled);
+  if(allowBossSave&&homeOwner===owner&&bossActiveBefore&&!effectsSuppressed(owner)){
     const cost=unit.card.type==='神タイプ'?3:2;
     if(state.hand.length>=cost)extStartBossSave(owner,unit,cost);
   }
@@ -8291,6 +8312,10 @@ discardForPendingEffect=function(handIndex){
       const data=currentBattleSession.pendingBossSave;
       currentBattleSession.pendingBossSave=null;
       extRestoreBossSavedUnit(data);
+    }
+    if(continuation==='dnaCount'){
+      currentBattleSession.playerCount+=1;
+      battleLogAdd('DNA // COUNT +1');
     }
     renderBattle();
     if(continuation==='bossEnd')setTimeout(()=>resolveEndStep(),0);
@@ -8443,7 +8468,8 @@ function extTryYanagiiNegate(enteringOwner,card,method='summon'){
 }
 function extSacrificeUnit(owner,unit){
   const state=currentSideState(owner);const idx=state.field.findIndex(u=>u.uid===unit.uid);if(idx<0)return;
-  const [gone]=state.field.splice(idx,1);extSendCardToGrave(owner,gone.card,'を生贄にして',gone.sealed||effectsSuppressed(owner));
+  const [gone]=state.field.splice(idx,1);const homeOwner=gone.originalOwner||owner;
+  extSendCardToGrave(homeOwner,gone.card,'を生贄にして',gone.sealed||effectsSuppressed(owner));
 }
 function extPutOnFieldByEffect(owner,card,sourceLabel='効果'){
   const state=currentSideState(owner);if(state.field.length>=7)return false;
@@ -8506,6 +8532,39 @@ playPlayerHandCard=function(handIndex){
   const unit=makeBattleUnit(card,'player','summon');currentBattleSession.playerField.push(unit);renderField('player');battleLogAdd(`${card.name} を召喚`);resolveUnitEntryEffects(unit);renderBattle();
 };
 
+/* ---------- life loss / No.050 大倉真 ---------- */
+function extHandleOkuraLifeLoss(owner,amount=1,reason='LIFE減少'){
+  if(!currentBattleSession||amount<=0)return;
+  const okuras=currentSideState(owner).field.filter(u=>u.card.no===50&&extUnitEffectActive(u));
+  if(!okuras.length)return;
+  let use=true;
+  if(owner==='player')use=confirm(`《大倉真》：${reason}でLIFEが減りました。\nCOUNTを${okuras.length}増やしますか？`);
+  if(!use)return;
+  if(owner==='player')currentBattleSession.playerCount+=okuras.length;
+  else currentBattleSession.enemyCount+=okuras.length;
+  battleLogAdd(`大倉真 // ${sideLabel(owner)}のLIFE減少を検知 // COUNT +${okuras.length}`);
+}
+function extLoseLife(owner,amount=1,reason='LIFE減少'){
+  amount=Math.max(0,Math.floor(Number(amount)||0));
+  if(!currentBattleSession||amount<=0)return 0;
+  if(owner==='player')currentBattleSession.playerLife-=amount;
+  else currentBattleSession.enemyLife-=amount;
+  extHandleOkuraLifeLoss(owner,amount,reason);
+  return amount;
+}
+function extOkuraEntry(unit){
+  if(!unit||unit.card.no!==50||!extUnitEffectActive(unit))return;
+  let use=unit.owner==='enemy'?currentBattleSession.enemyLife>1:confirm('《大倉真》：LIFEを1減らして、1枚ドローしCOUNTを1増やしますか？');
+  if(!use){battleLogAdd(`大倉真 // ${sideLabel(unit.owner)}は登場時効果を使用しない`);return;}
+  extLoseLife(unit.owner,1,'大倉真の登場時効果');
+  drawCard(unit.owner);
+  if(unit.owner==='player')currentBattleSession.playerCount+=1;
+  else currentBattleSession.enemyCount+=1;
+  battleLogAdd(`大倉真 // ${sideLabel(unit.owner)} LIFE -1 / 1枚ドロー / COUNT +1`);
+  playLifeDamageFx(unit.owner,1);
+  checkLifeWin();
+}
+
 /* ---------- new tools ---------- */
 function extFullHealTarget(card){
   const units=[...currentBattleSession.playerField,...currentBattleSession.enemyField].filter(u=>extCardEffectCanAffectUnit(card,u));
@@ -8562,7 +8621,7 @@ function extResolveGoddess(){
 const _useStarterTool26=useStarterTool;
 useStarterTool=function(handIndex,card){
   if(card.no===23){
-    removeToolFromHandToGrave(handIndex,card);currentBattleSession.playerLife-=1;
+    removeToolFromHandToGrave(handIndex,card);extLoseLife('player',1,'緋の目');
     currentBattleSession.playerField.forEach(unit=>{if(extCardEffectCanAffectUnit(card,unit))unit.currentAtk+=2});
     battleLogAdd('緋の目 // LIFE -1 / 効果を受ける自分のカード ATK +2');renderBattle();playLifeDamageFx('player',1);checkLifeWin();return;
   }
@@ -8574,6 +8633,7 @@ useStarterTool=function(handIndex,card){
   if(card.no===42){removeToolFromHandToGrave(handIndex,card);for(let i=0;i<5;i++)drawCard('player');ensureExtendedBattleState();currentBattleSession.playerComebackSummonTurn=currentBattleSession.turnNumber;battleLogAdd('起死回生 // 5枚を手札に加え、このターンは場の上限まで召喚可能');renderBattle();return;}
   if(card.no===46){removeToolFromHandToGrave(handIndex,card);extResolveMirror();renderBattle();return;}
   if(card.no===47){removeToolFromHandToGrave(handIndex,card);currentBattleSession.pendingAction={type:'orbExile',remaining:3};setPendingMessage('翼神竜の玉：除外する手札をあと3枚選択',true);renderBattle();return;}
+  if(card.no===51){removeToolFromHandToGrave(handIndex,card);extResolveSaitama('player');renderBattle();return;}
   _useStarterTool26(handIndex,card);
 };
 
@@ -8617,7 +8677,118 @@ renderBattleHand=function(){
   battleEnemyHand.innerHTML='';currentBattleSession.enemyHand.forEach(()=>{const back=document.createElement('div');back.className='mini-card-back';battleEnemyHand.append(back)});
 };
 
-/* ---------- entry effects No.026〜048 ---------- */
+/* ---------- No.049 小林 / No.051 埼玉 ---------- */
+function extWhenBattleIdle(callback){
+  const session=currentBattleSession;
+  const wait=()=>{
+    if(currentBattleSession!==session||!session||session.over)return;
+    if(hasPendingResolution()){setTimeout(wait,60);return;}
+    callback();
+  };
+  setTimeout(wait,0);
+}
+function extProcessUnitsSequentially(owner,uids,handler,onDone){
+  const queue=[...uids];
+  const next=()=>{
+    if(!currentBattleSession||currentBattleSession.over)return;
+    const uid=queue.shift();
+    if(uid==null){onDone?.();return;}
+    const live=currentSideState(owner).field.find(u=>u.uid===uid);
+    if(live)handler(live);
+    extWhenBattleIdle(next);
+  };
+  next();
+}
+function extOpenEffectChoice(title,options,onChoose,subtitle='効果を1つ選んでください'){
+  extCloseChoice();
+  if(!currentBattleSession||currentBattleSession.over)return;
+  currentBattleSession.pendingAction={type:'modalChoice'};
+  const overlay=document.createElement('div');overlay.id='battleCardChoiceOverlay';
+  Object.assign(overlay.style,{position:'fixed',inset:'0',zIndex:'9999',background:'rgba(0,0,0,.82)',display:'flex',alignItems:'center',justifyContent:'center',padding:'18px'});
+  const panel=document.createElement('div');Object.assign(panel.style,{width:'min(720px,94vw)',maxHeight:'78vh',overflow:'auto',background:'linear-gradient(180deg,#181c21,#07090b)',border:'1px solid rgba(199,163,90,.4)',boxShadow:'0 24px 80px #000',padding:'18px'});
+  const h=document.createElement('div');h.textContent=title;Object.assign(h.style,{color:'#dbc58c',fontSize:'20px',fontWeight:'700',marginBottom:'6px'});
+  const sub=document.createElement('div');sub.textContent=subtitle;Object.assign(sub.style,{color:'#777f85',fontSize:'11px',marginBottom:'14px'});
+  const grid=document.createElement('div');Object.assign(grid.style,{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(190px,1fr))',gap:'8px'});
+  (options||[]).forEach(option=>{
+    const b=document.createElement('button');b.type='button';
+    Object.assign(b.style,{minHeight:'92px',padding:'11px',textAlign:'left',border:'1px solid rgba(199,163,90,.22)',background:'#0b0e11',color:'#d7c9a9',cursor:'pointer',fontFamily:'inherit'});
+    b.innerHTML=`<strong>${escapeHtml(option.label)}</strong><small style="display:block;margin-top:8px;color:#70777c;line-height:1.55">${escapeHtml(option.desc||'')}</small>`;
+    b.addEventListener('click',()=>{extCloseChoice();if(currentBattleSession?.pendingAction?.type==='modalChoice')currentBattleSession.pendingAction=null;onChoose(option.id);});
+    grid.append(b);
+  });
+  panel.append(h,sub,grid);overlay.append(panel);document.body.append(overlay);setPendingMessage(title,true);
+}
+function extBestCreatureSubset(units,cap=20){
+  const list=(units||[]).filter(u=>u&&u.currentHp>0&&u.currentHp<=cap);
+  let best=[],bestHp=-1,bestAtk=-1;
+  const total=1<<list.length;
+  for(let mask=1;mask<total;mask++){
+    let hp=0,atk=0,pick=[];
+    for(let i=0;i<list.length;i++)if(mask&(1<<i)){hp+=Math.max(0,Number(list[i].currentHp)||0);atk+=Math.max(0,extGetUnitAtk(list[i]));pick.push(list[i]);if(hp>cap)break;}
+    if(hp<=cap&&(hp>bestHp||(hp===bestHp&&atk>bestAtk))){bestHp=hp;bestAtk=atk;best=pick;}
+  }
+  return best;
+}
+function extKobayashiHumans(owner,onDone){
+  const opponent=owner==='player'?'enemy':'player';
+  const ids=currentSideState(opponent).field.filter(u=>u.card.type==='人タイプ').map(u=>u.uid);
+  if(!ids.length){battleLogAdd('小林① // 相手の人タイプカードなし');onDone?.();return;}
+  battleLogAdd(`小林① // 相手の人タイプカード${ids.length}枚を破壊`);
+  extProcessUnitsSequentially(opponent,ids,u=>extMoveUnitToGrave(opponent,u.uid,'小林①の効果で破壊',true),onDone);
+}
+function extKobayashiCreatures(owner,onDone){
+  const opponent=owner==='player'?'enemy':'player';
+  const targets=extBestCreatureSubset(currentSideState(opponent).field.filter(u=>u.card.type==='クリーチャータイプ'),20);
+  if(!targets.length){battleLogAdd('小林② // HP合計20以内で墓地に置ける相手クリーチャーなし');onDone?.();return;}
+  const totalHp=targets.reduce((n,u)=>n+Math.max(0,Number(u.currentHp)||0),0);
+  battleLogAdd(`小林② // HP合計${totalHp}のクリーチャーを墓地へ：${targets.map(u=>u.card.name).join(' / ')}`);
+  extProcessUnitsSequentially(opponent,targets.map(u=>u.uid),u=>extMoveUnitToGrave(opponent,u.uid,'小林②の効果で墓地へ置かれ',true),onDone);
+}
+function extBanishFieldUnit(controller,uid,reason='除外'){
+  const state=currentSideState(controller);const idx=state.field.findIndex(u=>u.uid===uid);if(idx<0)return null;
+  const [unit]=state.field.splice(idx,1);const home=unit.originalOwner||controller;extBanished(home).push(unit.card);
+  battleLogAdd(`${unit.card.name} // ${reason}`);return unit;
+}
+function extKobayashiGod(owner,onDone){
+  const opponent=owner==='player'?'enemy':'player';const gods=currentSideState(opponent).field.filter(u=>u.card.type==='神タイプ');
+  if(!gods.length){battleLogAdd('小林③ // 相手の神タイプカードなし');onDone?.();return;}
+  if(owner==='enemy'){
+    const target=[...gods].sort((a,b)=>extGetUnitAtk(b)-extGetUnitAtk(a))[0];extBanishFieldUnit(opponent,target.uid,'小林③の効果で除外');renderBattle();onDone?.();return;
+  }
+  extOpenCardChoice('小林③ // 神タイプ除外',gods.map(u=>({...u.card,_unitUid:u.uid})),chosen=>{
+    const live=currentBattleSession.enemyField.find(u=>u.uid===chosen._unitUid&&u.card.type==='神タイプ');if(live)extBanishFieldUnit('enemy',live.uid,'小林③の効果で除外');renderBattle();onDone?.();
+  },'相手の神タイプカードを1枚選んで除外');
+}
+function extRunKobayashiEffect(owner,id,onDone){
+  if(id===1)return extKobayashiHumans(owner,onDone);
+  if(id===2)return extKobayashiCreatures(owner,onDone);
+  if(id===3)return extKobayashiGod(owner,onDone);
+  onDone?.();
+}
+function extResolveKobayashiEntry(unit){
+  if(!unit||unit.card.no!==49)return;
+  const owner=unit.owner,state=currentSideState(owner);
+  const all=state.field.some(u=>u.uid!==unit.uid&&u.card.no===48)&&state.field.some(u=>u.uid!==unit.uid&&u.card.no===50);
+  if(all){
+    battleLogAdd('小林 // いとしょー＋大倉真がいるため①②③をすべて使用');
+    extRunKobayashiEffect(owner,1,()=>extRunKobayashiEffect(owner,2,()=>extRunKobayashiEffect(owner,3,()=>{setPendingMessage();renderBattle();})));
+    return;
+  }
+  if(owner==='enemy'){
+    const opponent='player';const score1=currentSideState(opponent).field.filter(u=>u.card.type==='人タイプ').length;
+    const score2=extBestCreatureSubset(currentSideState(opponent).field.filter(u=>u.card.type==='クリーチャータイプ'),20).length;
+    const score3=currentSideState(opponent).field.some(u=>u.card.type==='神タイプ')?3:0;
+    const chosen=score3?3:(score1>=score2?1:2);battleLogAdd(`CPU 小林 // 効果${chosen}を選択`);extRunKobayashiEffect(owner,chosen,()=>renderBattle());return;
+  }
+  extOpenEffectChoice('小林 // 登場時効果',[{id:1,label:'① 人タイプ全破壊',desc:'相手の人タイプカードをすべて破壊する'},{id:2,label:'② クリーチャー墓地送り',desc:'相手クリーチャーをHP合計20以内で、できる限り墓地に置く'},{id:3,label:'③ 神タイプ除外',desc:'相手の神タイプカードを1枚除外する'}],id=>extRunKobayashiEffect(owner,id,()=>{setPendingMessage();renderBattle();}),'この効果は無効化されません');
+}
+function extResolveSaitama(owner='player'){
+  const opponent=owner==='player'?'enemy':'player';let n=0;
+  currentSideState(opponent).field.forEach(u=>{if(u.card.no===32){u.sealed=true;n++;}});
+  battleLogAdd(`埼玉 // 相手の台の翼神竜を${n}枚封印`);
+}
+
+/* ---------- entry effects No.026〜051 ---------- */
 function extApplyWingedDragonMultiplier(unit){
   if(!unit||unit.card.no!==32||!extUnitEffectActive(unit))return;
   let max=unit.owner==='player'?currentBattleSession.playerLife:currentBattleSession.enemyLife;max=Math.max(0,max);
@@ -8626,7 +8797,7 @@ function extApplyWingedDragonMultiplier(unit){
     const raw=prompt(`台の翼神竜：減らすLIFEを0〜${max}で入力してください。\n減らした数+1倍、ATKとHPが上がります。`,'0');
     spend=Math.floor(Number(raw));if(!Number.isFinite(spend))spend=0;spend=Math.max(0,Math.min(max,spend));
   }else spend=Math.max(0,max-1);
-  if(spend>0){if(unit.owner==='player')currentBattleSession.playerLife-=spend;else currentBattleSession.enemyLife-=spend;}
+  if(spend>0)extLoseLife(unit.owner,spend,'台の翼神竜');
   const mult=spend+1;unit.baseAtk*=mult;unit.currentAtk*=mult;unit.baseHp*=mult;unit.currentHp*=mult;
   battleLogAdd(`台の翼神竜 // LIFE -${spend} / ATK・HP ×${mult}`);if(spend>0){playLifeDamageFx(unit.owner,spend);checkLifeWin();}
 }
@@ -8649,14 +8820,18 @@ function extHolyArcher(unit){
 }
 const _resolveUnitEntryEffects26=resolveUnitEntryEffects;
 resolveUnitEntryEffects=function(unit){
+  if(!unit)return;
+  // 《小林》はカードテキストどおり登場時効果を無効化されない。
+  if(unit.card.no===49){extResolveKobayashiEntry(unit);renderBattle();return;}
   _resolveUnitEntryEffects26(unit);
-  if(!unit||!extUnitEffectActive(unit))return;
+  if(!extUnitEffectActive(unit))return;
   switch(unit.card.no){
     case 27:extHandleBossEntry(unit.owner);break;
     case 28:{let n=0;currentSideState(unit.owner).field.forEach(u=>{if(u.sealed){u.sealed=false;n++;}});battleLogAdd(`ヘビースモーカー // 自分のカードの封印を${n}枚解除`);break;}
     case 29:extUmeharaDiscard(unit.owner);break;
     case 32:extApplyWingedDragonMultiplier(unit);break;
     case 35:extHolyArcher(unit);break;
+    case 50:extOkuraEntry(unit);break;
   }
   renderBattle();
 };
@@ -8724,11 +8899,17 @@ resolveAttack=function(owner,uid,targetUid=null){
   setTimeout(()=>{
     if(!currentBattleSession||currentBattleSession.over)return;
     if(wallProtects(defender)){battleLogAdd(`ベルリンの壁 // ${unit.card.name} の攻撃を無効化`);renderBattle();const side=(defender==='player'?battlePlayerField:battleEnemyField)?.closest('.field-side');if(side){retriggerClass(side,'area-hit');spawnBattleFloat(side,'BLOCK','');}}
-    else if(targetUid===null){if(owner==='player')currentBattleSession.enemyLife-=1;else currentBattleSession.playerLife-=1;battleLogAdd(`${unit.card.name} のダイレクトアタック // LIFE -1`);renderBattle();playLifeDamageFx(defender,1);checkLifeWin();}
+    else if(targetUid===null){extLoseLife(defender,1,`${unit.card.name}のダイレクトアタック`);battleLogAdd(`${unit.card.name} のダイレクトアタック // LIFE -1`);renderBattle();playLifeDamageFx(defender,1);checkLifeWin();}
     else{const liveTarget=enemy.field.find(u=>u.uid===targetUid);if(liveTarget){const result=extApplyDamage(defender,liveTarget,damage,unit.card,false);if(result.blocked)battleLogAdd(`${liveTarget.card.name} // ${unit.card.name} からのダメージを無効化`);else battleLogAdd(`${unit.card.name} → ${liveTarget.card.name} に ${result.dealt} ダメージ`);
       if(!result.blocked&&extUnitEffectActive(unit)&&(unit.card.no===19||unit.card.no===20)&&liveTarget.card.type==='人タイプ'&&result.dealt>0){const healed=healBattleCard(unit,result.dealt);if(healed>0)battleLogAdd(`${unit.card.name} // 人タイプへのダメージで HP +${healed}`);}
       if(result.destroyed)extMoveUnitToGrave(defender,liveTarget.uid,'破壊',true);renderBattle();playCardDamageFx(defender,targetUid,result.dealt,result.destroyed);}else renderBattle();}
-    if(unit.card.no===39&&extUnitEffectActive(unit)&&getAttackCount(unit)>=2){const idx=own.field.findIndex(u=>u.uid===unit.uid);if(idx>=0){const [back]=own.field.splice(idx,1);own.hand.push(back.card);battleLogAdd('拒食症キング // 疲れて手札に戻る');}}
+    if(unit.card.no===39&&extUnitEffectActive(unit)&&getAttackCount(unit)>=2){
+      if(unit.controlChangedByKibidango&&unit.originalOwner&&unit.originalOwner!==owner){
+        battleLogAdd('きびだんご // 奪った拒食症キングは手札に戻せない');
+      }else{
+        const idx=own.field.findIndex(u=>u.uid===unit.uid);if(idx>=0){const [back]=own.field.splice(idx,1);own.hand.push(back.card);battleLogAdd('拒食症キング // 疲れて手札に戻る');}
+      }
+    }
     setTimeout(()=>{if(!currentBattleSession)return;currentBattleSession.animating=false;if(!hasPendingResolution())setPendingMessage();renderBattle();},420);
   },260);
 };
@@ -8768,6 +8949,8 @@ starterSpecialState=function(unit){
   if(unit.card.no===44)parts.push('クリーチャーダメージ無効');
   if(unit.card.no===45)parts.push('神ダメージ無効 / 人HP+1');
   if(unit.card.no===48)parts.push('グダグダ');
+  if(unit.card.no===49)parts.push('登場時3択 / 効果無効化不可');
+  if(unit.card.no===50)parts.push('LIFE減少時 COUNT+1選択');
   return parts.join(' / ');
 };
 const _renderField26=renderField;
@@ -8788,7 +8971,7 @@ renderField=function(owner){
 /* ---------- CPU: summon legality extended (future CPU decks) ---------- */
 const _cpuSummonPriority26=cpuSummonPriority;
 cpuSummonPriority=function(card){
-  const extra={27:150,43:145,32:140,35:125,39:118,28:110,29:108,41:104,26:101,44:95,45:94,36:88,37:88,33:84,48:45};
+  const extra={49:155,27:150,43:145,32:140,35:125,50:120,39:118,28:110,29:108,41:104,26:101,44:95,45:94,36:88,37:88,33:84,48:45};
   return extra[card?.no]??_cpuSummonPriority26(card);
 };
 cpuCanSummon=function(card){
@@ -8814,14 +8997,566 @@ cpuMainStep=function(){
 
 /* CPU DNA discard also triggers Boss effect ⑤. */
 cpuUseDNA=function(){
-  if(!currentBattleSession||currentBattleSession.over||effectsSuppressed('enemy'))return false;const state=currentSideState('enemy');const dnaIndex=state.hand.findIndex(c=>c?.no===7);if(dnaIndex<0)return false;
+  if(!currentBattleSession||currentBattleSession.over||effectsSuppressed('enemy'))return false;
+  const state=currentSideState('enemy');const dnaIndex=state.hand.findIndex(c=>c?.no===7);if(dnaIndex<0)return false;
   const [dna]=state.hand.splice(dnaIndex,1);state.grave.push(dna);battleLogAdd('CPUが Deoxyribo Nucleic Acid を使用');
-  const type=BATTLE_TYPES[Math.floor(Math.random()*BATTLE_TYPES.length)];const candidates=state.deck.map((card,index)=>({card,index})).filter(x=>x.card.type===type);const picks=shuffleArray(candidates).slice(0,2).sort((a,b)=>b.index-a.index);const found=[];
-  for(const pick of picks){const [card]=state.deck.splice(pick.index,1);if(card){state.hand.push(card);found.push(card);}}battleLogAdd(`CPU DNA // ランダムタイプ：${type} // ${found.length}枚を手札へ`);
-  const n=Math.min(2,state.hand.length);for(let i=0;i<n&&state.hand.length;i++)extDiscardHandCard('enemy',Math.floor(Math.random()*state.hand.length),'CPU DNA');return true;
+  const type=BATTLE_TYPES[Math.floor(Math.random()*BATTLE_TYPES.length)];
+  const candidates=state.deck.map((card,index)=>({card,index})).filter(x=>x.card.type===type);
+  const picks=shuffleArray(candidates).slice(0,2).sort((a,b)=>b.index-a.index);const found=[];
+  for(const pick of picks){const [card]=state.deck.splice(pick.index,1);if(card){state.hand.push(card);found.push(card);}}
+  battleLogAdd(`CPU DNA // ランダムタイプ：${type} // ${found.length}枚を手札へ`);
+  if(state.hand.length)extDiscardHandCard('enemy',Math.floor(Math.random()*state.hand.length),'CPU DNA');
+  currentBattleSession.enemyCount+=1;battleLogAdd('CPU DNA // COUNT +1');
+  return true;
 };
 
-/* ===== end Cards No.026〜048 extension ===== */
+
+/* ===== CPU all-card decision logic (No.001〜051) ===== */
+function cpuAllBoardValue(owner){
+  const state=currentSideState(owner);
+  return state.field.reduce((sum,u)=>{
+    let bonus=0;
+    if(u.card.type==='神タイプ')bonus+=12;
+    if([25,27,32,43,49,50].includes(u.card.no))bonus+=6;
+    return sum+Math.max(0,extGetUnitAtk(u))*1.65+Math.max(0,Number(u.currentHp)||0)*0.55+bonus;
+  },0);
+}
+function cpuAllStaticToolScore(card){
+  const scores={6:64,7:78,8:88,9:92,10:18,18:54,21:70,23:72,30:82,31:76,34:74,38:60,40:86,42:100,46:80,47:79,51:84};
+  return scores[card?.no]||20;
+}
+function cpuAllCardKeepScore(card){
+  if(!card)return -999;
+  if(card.type==='道具タイプ')return cpuAllStaticToolScore(card);
+  return Math.max(0,cpuSummonPriority(card))+((card.type==='神タイプ')?35:0)+((Number(card.atk)||0)*2)+(Number(card.hp)||0)*0.35;
+}
+function cpuAllWorstHandIndex(hand,excludeCard=null){
+  let bestIndex=-1,bestScore=Infinity;
+  hand.forEach((card,i)=>{
+    if(card===excludeCard)return;
+    const score=cpuAllCardKeepScore(card);
+    if(score<bestScore){bestScore=score;bestIndex=i;}
+  });
+  return bestIndex;
+}
+function cpuAllRawCanSummon(card,{ignoreLimit=false}={}){
+  if(!currentBattleSession||!card||card.type==='道具タイプ')return false;
+  ensureExtendedBattleState();
+  const state=currentSideState('enemy');
+  if(state.field.length>=7)return false;
+  if(!ignoreLimit&&extSummonCount('enemy')>=extSummonLimit('enemy'))return false;
+  if(currentBattleSession.enemyCount<cardCountCost(card))return false;
+  if(card.type==='神タイプ'){
+    const need=(card.no===27&&extCanBossDescend('enemy'))?1:3;
+    if(state.field.length<need)return false;
+  }
+  return true;
+}
+function cpuAllBestOwnHealTarget(){
+  const source=CARD_BY_NO.get('34');
+  return currentBattleSession.enemyField
+    .filter(u=>extCardEffectCanAffectUnit(source,u)&&u.currentHp<u.baseHp)
+    .sort((a,b)=>((b.baseHp-b.currentHp)*3+extGetUnitAtk(b))-((a.baseHp-a.currentHp)*3+extGetUnitAtk(a)))[0]||null;
+}
+function cpuAllBestPowerSwitchTarget(){
+  const source=CARD_BY_NO.get('18');
+  return currentBattleSession.enemyField
+    .filter(u=>extCardEffectCanAffectUnit(source,u)&&u.currentAtk>0&&u.currentHp>u.currentAtk)
+    .sort((a,b)=>(b.currentHp-b.currentAtk)-(a.currentHp-a.currentAtk))[0]||null;
+}
+function cpuAllBestStealTarget(){
+  return currentBattleSession.playerField
+    .filter(u=>u.card.type!=='神タイプ')
+    .sort((a,b)=>(cpuAllCardKeepScore(b.card)+extGetUnitAtk(b)*2+b.currentHp)-(cpuAllCardKeepScore(a.card)+extGetUnitAtk(a)*2+a.currentHp))[0]||null;
+}
+function cpuAllShouldReset(){
+  const s=currentBattleSession;
+  if(!s||s.cpuResetUsedTurn===s.turnNumber)return false;
+  const own=cpuAllBoardValue('enemy'),opp=cpuAllBoardValue('player');
+  if(s.enemyField.length===0&&s.playerField.length>=3)return true;
+  if(opp>own*1.55+8)return true;
+  if(s.enemyHand.length<=1&&s.playerHand.length>=5&&opp>own+4)return true;
+  return false;
+}
+function cpuAllHasWingedOutsideHand(){
+  const s=currentSideState('enemy');
+  return s.deck.some(c=>c.no===32)||s.grave.some(c=>c.no===32)||extBanished('enemy').some(c=>c.no===32);
+}
+function cpuAllCanUseTool(card){
+  if(!currentBattleSession||!card||card.type!=='道具タイプ'||effectsSuppressed('enemy'))return false;
+  ensureExtendedBattleState();
+  if(currentBattleSession.enemyCount<cardCountCost(card))return false;
+  const e=currentSideState('enemy'),p=currentSideState('player');
+  switch(card.no){
+    case 6:return cpuAllShouldReset();
+    case 7:return true;
+    case 8:return currentBattleSession.enemyWallTurns<=0&&p.field.length>0;
+    case 9:return e.field.length<7&&p.field.some(u=>u.card.type!=='神タイプ');
+    case 10:return true;
+    case 18:return !!cpuAllBestPowerSwitchTarget();
+    case 21:return e.grave.some(c=>c.type!=='神タイプ'&&c.type!=='道具タイプ');
+    case 23:return currentBattleSession.enemyLife>2&&e.field.some(u=>extCardEffectCanAffectUnit(card,u));
+    case 30:return p.field.some(u=>u.card.no===27&&!u.sealed);
+    case 31:return e.deck.some(c=>c.no===32);
+    case 34:return !!cpuAllBestOwnHealTarget();
+    case 38:return currentBattleSession.enemyLife<=2||(e.field.length===0&&currentBattleSession.enemyLife<=3);
+    case 40:{
+      if(extSummonLimit('enemy')!==1||e.field.length>5)return false;
+      const summonable=e.hand.filter(c=>c!==card&&cpuAllRawCanSummon(c,{ignoreLimit:true}));
+      return summonable.length>=2;
+    }
+    case 42:return currentBattleSession.enemyLife===1;
+    case 46:return e.deck.length>0;
+    case 47:return e.hand.length>=4&&cpuAllHasWingedOutsideHand();
+    case 51:return p.field.some(u=>u.card.no===32&&!u.sealed);
+    default:return false;
+  }
+}
+function cpuAllToolPriority(card){
+  if(!cpuAllCanUseTool(card))return -Infinity;
+  const s=currentBattleSession;
+  const dynamic={
+    10:1200,
+    42:1150,
+    6:1100,
+    8:980,
+    9:940,
+    30:930,
+    51:925,
+    34:900,
+    40:880,
+    23:820,
+    38:810,
+    7:780,
+    21:750,
+    46:720,
+    47:700,
+    31:690,
+    18:620
+  };
+  let score=dynamic[card.no]||0;
+  if(card.no===8)score+=Math.min(100,cpuAllBoardValue('player'));
+  if(card.no===34){const t=cpuAllBestOwnHealTarget();if(t)score+=(t.baseHp-t.currentHp)*8;}
+  if(card.no===9){const t=cpuAllBestStealTarget();if(t)score+=cpuAllCardKeepScore(t.card)*0.3;}
+  if(card.no===21&&s.enemyHand.length<=2)score+=45;
+  return score;
+}
+function cpuAllRemoveToolFromHand(index,card){
+  const state=currentSideState('enemy');
+  let i=index;
+  if(state.hand[i]!==card)i=state.hand.indexOf(card);
+  if(i<0)return false;
+  state.hand.splice(i,1);
+  state.grave.push(card);
+  battleLogAdd(`CPUが ${card.name} を使用`);
+  return true;
+}
+function cpuAllUseDNAResolved(){
+  const state=currentSideState('enemy');
+  const type=BATTLE_TYPES[Math.floor(Math.random()*BATTLE_TYPES.length)];
+  const candidates=state.deck.map((card,index)=>({card,index})).filter(x=>x.card.type===type);
+  const picks=shuffleArray(candidates).slice(0,2).sort((a,b)=>b.index-a.index);
+  const found=[];
+  for(const pick of picks){
+    const [c]=state.deck.splice(pick.index,1);
+    if(c){state.hand.push(c);found.push(c);}
+  }
+  battleLogAdd(`CPU DNA // ランダムタイプ：${type} // ${found.length}枚を手札へ`);
+  if(state.hand.length){
+    const idx=cpuAllWorstHandIndex(state.hand);
+    if(idx>=0)extDiscardHandCard('enemy',idx,'CPU DNA');
+  }
+  currentBattleSession.enemyCount+=1;
+  battleLogAdd('CPU DNA // COUNT +1');
+}
+function cpuAllResolveFanClub(){
+  const state=currentSideState('enemy');
+  const found=[];
+  for(let i=state.deck.length-1;i>=0;i--){
+    if(state.deck[i].no===32){const [c]=state.deck.splice(i,1);state.hand.push(c);found.push(c);}
+  }
+  battleLogAdd(`CPU 台ファン結成 // 山札から台の翼神竜を${found.length}枚手札へ`);
+  let inds=state.hand.map((c,i)=>c.no===32?i:-1).filter(i=>i>=0);
+  if(inds.length){const [c]=state.hand.splice(inds[0],1);extSendCardToGrave('enemy',c,'を台ファン結成で',false);}
+  inds=state.hand.map((c,i)=>c.no===32?i:-1).filter(i=>i>=0);
+  if(inds.length>=2&&state.field.length<7){
+    const [c]=state.hand.splice(inds[1],1);
+    extPutOnFieldByEffect('enemy',c,'CPU 台ファン結成');
+  }
+}
+function cpuAllResolveMirror(){
+  const state=currentSideState('enemy');
+  currentBattleSession.enemyLife+=1;
+  battleLogAdd('CPU 翼神竜の鏡 // LIFE +1');
+  if(!state.deck.length)return;
+  let graveIndex=0,graveScore=Infinity;
+  state.deck.forEach((c,i)=>{const score=cpuAllCardKeepScore(c);if(score<graveScore){graveScore=score;graveIndex=i;}});
+  const [sent]=state.deck.splice(graveIndex,1);
+  if(sent)extSendCardToGrave('enemy',sent,'を翼神竜の鏡で山札から選び',false);
+  const tools=state.deck.map((c,i)=>({c,i})).filter(x=>x.c.type==='道具タイプ');
+  if(!tools.length){battleLogAdd('CPU 翼神竜の鏡 // 山札に道具タイプなし');return;}
+  tools.sort((a,b)=>cpuAllStaticToolScore(b.c)-cpuAllStaticToolScore(a.c));
+  const pick=tools[0];
+  const [tool]=state.deck.splice(pick.i,1);
+  if(tool){state.hand.push(tool);battleLogAdd(`CPU 翼神竜の鏡 // ${tool.name} を手札へ`);}
+}
+function cpuAllResolveOrb(){
+  const state=currentSideState('enemy');
+  for(let n=0;n<3&&state.hand.length;n++){
+    const idx=cpuAllWorstHandIndex(state.hand);
+    if(idx<0)break;
+    const [c]=state.hand.splice(idx,1);
+    extBanished('enemy').push(c);
+    battleLogAdd(`CPU 翼神竜の玉 // ${c.name} を除外`);
+  }
+  // CPUは、すでに場にいる《台の翼神竜》をわざわざ手札へ戻さず、
+  // 山札→墓地→除外の順で未展開の個体を探す。
+  let winged=null;
+  let i=state.deck.findIndex(c=>c.no===32);if(i>=0)[winged]=state.deck.splice(i,1);
+  if(!winged){i=state.grave.findIndex(c=>c.no===32);if(i>=0)[winged]=state.grave.splice(i,1);}
+  if(!winged){const banished=extBanished('enemy');i=banished.findIndex(c=>c.no===32);if(i>=0)[winged]=banished.splice(i,1);}
+  if(winged){state.hand.push(winged);battleLogAdd(`CPU 翼神竜の玉 // ${winged.name} を手札へ`);}
+  else battleLogAdd('CPU 翼神竜の玉 // 回収できる台の翼神竜が見つからない');
+}
+function cpuAllUseTool(index,card){
+  if(!cpuAllCanUseTool(card))return false;
+  const cost=cardCountCost(card);
+  if(!payCount('enemy',cost))return false;
+  if(!cpuAllRemoveToolFromHand(index,card))return false;
+  const e=currentSideState('enemy'),p=currentSideState('player');
+  switch(card.no){
+    case 6:
+      currentBattleSession.cpuResetUsedTurn=currentBattleSession.turnNumber;
+      resolveResetButton();
+      break;
+    case 7:
+      cpuAllUseDNAResolved();
+      break;
+    case 8:
+      currentBattleSession.enemyWallTurns=3;
+      battleLogAdd('CPU ベルリンの壁 // 次のあなたのアタックステップ3回の攻撃を無効化');
+      break;
+    case 9:{
+      const target=cpuAllBestStealTarget();
+      if(target&&e.field.length<7){
+        const idx=p.field.findIndex(u=>u.uid===target.uid);
+        if(idx>=0){
+          const [unit]=p.field.splice(idx,1);
+          if(!unit.originalOwner)unit.originalOwner=unit.owner;
+          unit.owner='enemy';
+          unit.controlChangedByKibidango=true;
+          unit.entryMethod='effect';
+          unit.summonedTurn=currentBattleSession.turnNumber;
+          unit.summonedOwnerTurn=currentBattleSession.enemyOwnTurn;
+          e.field.push(unit);
+          battleLogAdd(`CPU きびだんご // ${unit.card.name} を奪取`);
+        }
+      }
+      break;
+    }
+    case 10:
+      forceHandToOne('enemy');
+      break;
+    case 18:{
+      const target=cpuAllBestPowerSwitchTarget();
+      if(target){
+        const atk=target.currentAtk;target.currentAtk=target.currentHp;target.currentHp=atk;target.dynamicAtkFrozen=true;
+        battleLogAdd(`CPU パワースイッチ // ${target.card.name} → ATK ${target.currentAtk} / HP ${target.currentHp}`);
+        if(target.currentHp<=0)extMoveUnitToGrave('enemy',target.uid,'パワースイッチでHPが0になり破壊',true);
+      }
+      break;
+    }
+    case 21:{
+      const options=e.grave.map((c,i)=>({c,i})).filter(x=>x.c.type!=='神タイプ'&&x.c.type!=='道具タイプ');
+      options.sort((a,b)=>cpuAllCardKeepScore(b.c)-cpuAllCardKeepScore(a.c));
+      if(options.length){const [c]=e.grave.splice(options[0].i,1);e.hand.push(c);battleLogAdd(`CPU ぼちぼちな墓地 // ${c.name} を手札へ`);}
+      break;
+    }
+    case 23:
+      extLoseLife('enemy',1,'CPU 緋の目');
+      e.field.forEach(u=>{if(extCardEffectCanAffectUnit(card,u))u.currentAtk+=2;});
+      battleLogAdd('CPU 緋の目 // LIFE -1 / 自分のカード ATK +2');
+      playLifeDamageFx('enemy',1);checkLifeWin();
+      break;
+    case 30:{
+      let n=0;p.field.forEach(u=>{if(u.card.no===27&&!u.sealed){u.sealed=true;n++;}});
+      battleLogAdd(`CPU アウシュビッツこうゆうかん八潮校 // あなたのボスを${n}枚封印`);
+      break;
+    }
+    case 31:
+      cpuAllResolveFanClub();
+      break;
+    case 34:{
+      const target=cpuAllBestOwnHealTarget();
+      if(target){target.currentHp=target.baseHp;battleLogAdd(`CPU オレレレレレレンの実 // ${target.card.name} を全回復`);}
+      break;
+    }
+    case 38:{
+      currentBattleSession.enemyLife+=5;
+      battleLogAdd('CPU 優しい女神 // LIFE +5');
+      const ids=[...e.field].filter(u=>extCardEffectCanAffectUnit(card,u)).map(u=>u.uid);
+      ids.forEach(uid=>{if(e.field.some(u=>u.uid===uid))extMoveUnitToGrave('enemy',uid,'優しい女神の効果で墓地へ送られ',true);});
+      currentBattleSession.enemyFutureAtkPenalty=(Number(currentBattleSession.enemyFutureAtkPenalty)||0)-2;
+      battleLogAdd('CPU 優しい女神 // 以後、場に出すカードのATK -2');
+      break;
+    }
+    case 40:
+      currentBattleSession.enemyDoubleSummonTurn=currentBattleSession.turnNumber;
+      battleLogAdd('CPU ダブルス // このターンの召喚上限を2枚にする');
+      break;
+    case 42:
+      for(let i=0;i<5;i++)drawCard('enemy');
+      currentBattleSession.enemyComebackSummonTurn=currentBattleSession.turnNumber;
+      battleLogAdd('CPU 起死回生 // 5枚ドロー / このターンは場の上限まで召喚可能');
+      break;
+    case 46:
+      cpuAllResolveMirror();
+      break;
+    case 47:
+      cpuAllResolveOrb();
+      break;
+    case 51:
+      extResolveSaitama('enemy');
+      break;
+  }
+  renderBattle();
+  return true;
+}
+function cpuAllUseBestTool(){
+  const state=currentSideState('enemy');
+  const candidates=state.hand.map((card,index)=>({card,index,score:cpuAllToolPriority(card)})).filter(x=>Number.isFinite(x.score)).sort((a,b)=>b.score-a.score);
+  if(!candidates.length)return false;
+  return cpuAllUseTool(candidates[0].index,candidates[0].card);
+}
+function cpuAllUseFieldAbility(){
+  const s=currentBattleSession,state=currentSideState('enemy');
+  if(!s||effectsSuppressed('enemy'))return false;
+  const ownTurn=s.enemyOwnTurn;
+  for(const unit of state.field){
+    if(unit.card.no===45&&extUnitEffectActive(unit)&&unit.lastRebelHealOwnerTurn!==ownTurn){
+      const targets=state.field.filter(u=>u.card.type==='人タイプ'&&u.currentHp<u.baseHp+7).sort((a,b)=>(b.baseHp+7-b.currentHp)-(a.baseHp+7-a.currentHp));
+      if(targets.length){
+        unit.lastRebelHealOwnerTurn=ownTurn;
+        const healed=healBattleCard(targets[0],1);
+        battleLogAdd(`CPU 反旗を翻しマン // ${targets[0].card.name} HP +${healed}`);
+        renderBattle();return true;
+      }
+    }
+  }
+  for(const unit of state.field){
+    if(unit.card.no===48&&extUnitEffectActive(unit)&&unit.lastItoOwnerTurn!==ownTurn&&state.hand.length&&state.deck.length){
+      unit.lastItoOwnerTurn=ownTurn;
+      const bottomIndex=cpuAllWorstHandIndex(state.hand);
+      if(bottomIndex>=0){
+        const [bottom]=state.hand.splice(bottomIndex,1);state.deck.push(bottom);
+        battleLogAdd(`CPU いとしょー // ${bottom.name} を山札の一番下へ`);
+        const top3=state.deck.slice(0,3);
+        const eligible=top3.filter(c=>c.type==='人タイプ'||c.type==='神タイプ').sort((a,b)=>cpuAllCardKeepScore(b)-cpuAllCardKeepScore(a));
+        if(eligible.length){
+          const chosen=eligible[0],idx=state.deck.indexOf(chosen);
+          if(idx>=0&&idx<3){state.deck.splice(idx,1);state.hand.push(chosen);battleLogAdd(`CPU いとしょー // ${chosen.name} を手札へ`);}
+        }else battleLogAdd('CPU いとしょー // 山札上3枚に人・神タイプなし');
+        renderBattle();return true;
+      }
+    }
+  }
+  for(const unit of state.field){
+    if(unit.card.no===22&&extUnitEffectActive(unit)&&unit.lastMikuPeekOwnerTurn!==ownTurn){
+      unit.lastMikuPeekOwnerTurn=ownTurn;
+      battleLogAdd(`CPU 初音三ク // あなたの手札${currentBattleSession.playerHand.length}枚を確認`);
+      return true;
+    }
+  }
+  return false;
+}
+function cpuAllChooseSacrifices(count,preferredUid=null){
+  const field=[...currentBattleSession.enemyField];
+  if(preferredUid!=null){const preferred=field.find(u=>u.uid===preferredUid);if(preferred)return [preferred];}
+  return field.sort((a,b)=>(cpuAllCardKeepScore(a.card)+extGetUnitAtk(a)+a.currentHp*0.25)-(cpuAllCardKeepScore(b.card)+extGetUnitAtk(b)+b.currentHp*0.25)).slice(0,count);
+}
+function cpuAllSummonOne(){
+  const state=currentSideState('enemy');
+  const candidates=state.hand.map((card,index)=>({card,index})).filter(x=>cpuAllRawCanSummon(x.card)).sort((a,b)=>cpuSummonPriority(b.card)-cpuSummonPriority(a.card));
+  if(!candidates.length)return false;
+  const choice=candidates[0],card=choice.card;
+  if(!payCount('enemy',cardCountCost(card)))return false;
+  let sacrifices=[],usedDescent=false;
+  if(card.type==='神タイプ'){
+    if(card.no===27&&extCanBossDescend('enemy')&&state.field.length<3){
+      const ume=state.field.find(u=>u.card.no===29);
+      if(ume){sacrifices=cpuAllChooseSacrifices(1,ume.uid);usedDescent=true;}
+    }
+    if(!sacrifices.length)sacrifices=cpuAllChooseSacrifices(3);
+    sacrifices.forEach(u=>extSacrificeUnit('enemy',u));
+    battleLogAdd(`CPU 神召喚の生贄：${sacrifices.map(u=>u.card.name).join(' / ')}`);
+    if(usedDescent){
+      currentBattleSession.enemyEffectsDisabledTurn=currentBattleSession.turnNumber;
+      currentBattleSession.enemyAttackLockedTurn=currentBattleSession.turnNumber;
+      battleLogAdd('CPU ボス 降臨 // このターン、カード効果と攻撃を使用しない');
+    }
+  }
+  let handIndex=state.hand.indexOf(card);
+  if(handIndex<0)return false;
+  const [summoned]=state.hand.splice(handIndex,1);
+  extSetSummonCount('enemy',extSummonCount('enemy')+1);
+  if(extTryYanagiiNegate('enemy',summoned,'summon')){
+    extSendCardToGrave('enemy',summoned,'の召喚を無効化され',effectsSuppressed('enemy'));
+    renderBattle();return true;
+  }
+  const unit=makeBattleUnit(summoned,'enemy','summon');
+  state.field.push(unit);
+  renderField('enemy');
+  battleLogAdd(`CPUが ${summoned.name} を召喚`);
+  resolveUnitEntryEffects(unit);
+  renderBattle();
+  return true;
+}
+function cpuAllRunMainStep(){
+  if(!currentBattleSession||currentBattleSession.over)return;
+  const session=currentBattleSession;
+  if(session.cpuMainInProgress)return;
+  session.cpuMainInProgress=true;
+  let actions=0;
+  const finish=()=>{if(currentBattleSession===session)session.cpuMainInProgress=false;renderBattle();};
+  const step=()=>{
+    if(currentBattleSession!==session||session.over||session.activePlayer!=='enemy'||session.phase!=='main'){finish();return;}
+    if(hasPendingResolution()){setTimeout(step,100);return;}
+    if(actions>=40){battleLogAdd('CPU MAIN STEP // 行動上限に到達');finish();return;}
+    let acted=false;
+    if(cpuAllUseBestTool())acted=true;
+    else if(cpuAllUseFieldAbility())acted=true;
+    else if(cpuAllSummonOne())acted=true;
+    if(!acted){battleLogAdd('CPU MAIN STEP // 行動終了');finish();return;}
+    actions++;
+    setTimeout(step,150);
+  };
+  setTimeout(step,80);
+}
+cpuMainStep=function(){cpuAllRunMainStep();};
+
+function cpuAllTargetThreat(unit){
+  if(!unit)return -999;
+  let score=extGetUnitAtk(unit)*3+Math.max(0,unit.currentHp)+cpuAllCardKeepScore(unit.card)*0.28;
+  if([25,27,32,43,49,50].includes(unit.card.no))score+=22;
+  if(unit.card.type==='神タイプ')score+=18;
+  return score;
+}
+function cpuAllAttackTarget(attacker){
+  const targets=currentBattleSession.playerField;
+  if(!targets.length)return null;
+  if(attacker.card.no===32&&extUnitEffectActive(attacker)){
+    const gods=targets.filter(u=>u.card.type==='神タイプ');
+    if(!gods.length)return null;
+    return [...gods].sort((a,b)=>cpuAllTargetThreat(b)-cpuAllTargetThreat(a))[0];
+  }
+  return [...targets].sort((a,b)=>{
+    const score=(t)=>{
+      const dmg=attackDamage(attacker,t);
+      let v=cpuAllTargetThreat(t);
+      if(dmg>=t.currentHp)v+=110;
+      if(extUnitEffectActive(t)&&t.card.no===41&&!t.damageShieldUsed)v-=32;
+      if(extUnitEffectActive(t)&&t.card.no===44&&attacker.card.type==='クリーチャータイプ')v-=70;
+      if(extUnitEffectActive(t)&&t.card.no===45&&attacker.card.type==='神タイプ')v-=70;
+      if((attacker.card.no===19||attacker.card.no===20)&&t.card.type==='人タイプ')v+=18;
+      if(attacker.card.no===14&&t.card.type==='クリーチャータイプ')v+=20;
+      if(attacker.card.no===17&&t.card.no===26)v+=24;
+      if(attacker.card.no===26&&t.card.no===17)v+=24;
+      return v;
+    };
+    return score(b)-score(a);
+  })[0]||null;
+}
+cpuAttackStep=function(){
+  if(!currentBattleSession||currentBattleSession.over)return;
+  const session=currentBattleSession;
+  const attackers=[...session.enemyField].filter(u=>isUnitReadyToAttack(u));
+  if(session.playerWallTurns>0){
+    for(const unit of attackers){
+      while(isUnitReadyToAttack(unit)){
+        consumeAttack(unit);
+        battleLogAdd(`ベルリンの壁 // ${unit.card.name} の攻撃を無効化`);
+        playAttackFx('enemy',unit.uid);
+      }
+      if(unit.card.no===39&&extUnitEffectActive(unit)&&getAttackCount(unit)>=2){
+        const own=currentSideState('enemy');
+        if(unit.controlChangedByKibidango&&unit.originalOwner&&unit.originalOwner!=='enemy'){
+          battleLogAdd('きびだんご // 奪った拒食症キングは手札に戻せない');
+        }else{
+          const idx=own.field.findIndex(u=>u.uid===unit.uid);
+          if(idx>=0){const [back]=own.field.splice(idx,1);own.hand.push(back.card);battleLogAdd('拒食症キング // 疲れて手札に戻る');}
+        }
+      }
+    }
+    session.playerWallTurns=Math.max(0,session.playerWallTurns-1);
+    battleLogAdd(`ベルリンの壁 // 残り${session.playerWallTurns}回の相手アタックステップ`);
+    renderBattle();return;
+  }
+  if(!attackers.length){battleLogAdd('CPU ATTACK STEP // 攻撃可能カードなし');return;}
+  session.cpuAttackInProgress=true;
+  let index=0;
+  const next=()=>{
+    if(currentBattleSession!==session||session.over||session.activePlayer!=='enemy'){session.cpuAttackInProgress=false;return;}
+    const otherPending=!!session.pendingAction||(session.pendingDiscardCount||0)>0||!!session.pendingBossSave||!!session.playerBossGravePending||!!session.enemyBossGravePending;
+    if(session.animating||otherPending){setTimeout(next,100);return;}
+    if(index>=attackers.length){session.cpuAttackInProgress=false;renderBattle();return;}
+    const planned=attackers[index];
+    const live=session.enemyField.find(u=>u.uid===planned.uid);
+    if(!live||!isUnitReadyToAttack(live)){index++;setTimeout(next,90);return;}
+    const target=cpuAllAttackTarget(live);
+    resolveAttack('enemy',live.uid,target?target.uid:null);
+    if(getAttackCount(live)>=maxAttacksThisTurn(live))index++;
+    setTimeout(next,120);
+  };
+  next();
+};
+
+function cpuAllTickEnemyWallForPlayerAttackStep(){
+  const session=currentBattleSession;
+  if(!session||session.over||session.activePlayer!=='player'||session.enemyWallTurns<=0)return;
+  if(session.cpuWallLastTickPlayerTurn===session.playerOwnTurn)return;
+  session.cpuWallLastTickPlayerTurn=session.playerOwnTurn;
+  session.enemyWallTurns=Math.max(0,session.enemyWallTurns-1);
+  battleLogAdd(`CPU ベルリンの壁 // 残り${session.enemyWallTurns}回のあなたのアタックステップ`);
+  renderBattle();
+}
+const cpuAllAdvanceBattlePhaseBase=advanceBattlePhase;
+advanceBattlePhase=function(){
+  const session=currentBattleSession;
+  const owner=session?.activePlayer;
+  const beforePhase=session?.phase;
+  cpuAllAdvanceBattlePhaseBase();
+  if(currentBattleSession===session&&!session?.over&&owner==='player'&&beforePhase==='attack'&&session.phase==='end'){
+    cpuAllTickEnemyWallForPlayerAttackStep();
+  }
+};
+const cpuAllEndTurnNowBase=endTurnNow;
+endTurnNow=function(){
+  const session=currentBattleSession;
+  const wasPlayerAttack=!!session&&!session.over&&session.activePlayer==='player'&&session.phase==='attack';
+  if(wasPlayerAttack)cpuAllTickEnemyWallForPlayerAttackStep();
+  cpuAllEndTurnNowBase();
+};
+
+runCpuTurn=function(){
+  if(!currentBattleSession||currentBattleSession.over||currentBattleSession.activePlayer!=='enemy')return;
+  const session=currentBattleSession,turnNumber=session.turnNumber;
+  session.cpuTurnRunnerId=(Number(session.cpuTurnRunnerId)||0)+1;
+  const runnerId=session.cpuTurnRunnerId;
+  const same=()=>currentBattleSession===session&&!session.over&&session.activePlayer==='enemy'&&session.turnNumber===turnNumber&&session.cpuTurnRunnerId===runnerId;
+  const pump=()=>{
+    if(!same())return;
+    if(session.cpuMainInProgress||hasPendingResolution()){setTimeout(pump,110);return;}
+    if(session.phase==='end'){battleLogAdd('CPU END STEP // ターン終了');resolveEndStep();return;}
+    advanceBattlePhase();
+    if(!same())return;
+    setTimeout(pump,session.phase==='attack'?220:520);
+  };
+  setTimeout(pump,560);
+};
+
+/* ===== end CPU all-card decision logic ===== */
+
+/* ===== end Cards No.026〜051 extension ===== */
 
 })();
 </script>
