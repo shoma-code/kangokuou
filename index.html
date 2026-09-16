@@ -1044,6 +1044,7 @@ body.reduce-motion *,body.reduce-motion *:before,body.reduce-motion *:after{anim
 .battle-turn-intro-main{color:#dec78f;font-size:30px;font-weight:900;letter-spacing:.16em}
 .battle-turn-intro-sub{margin-top:7px;color:#747c83;font:9px/1 Consolas,monospace;letter-spacing:.24em}
 .battle-turn-intro.enemy .battle-turn-intro-main{color:#d28c7d}
+.battle-turn-intro.trial-pass{background:rgba(2,4,6,.96);backdrop-filter:blur(12px)}
 @keyframes introFade{0%{opacity:0}15%,75%{opacity:1}100%{opacity:0}}
 
 
@@ -2260,7 +2261,7 @@ body.reduce-motion *,body.reduce-motion *:before,body.reduce-motion *:after{anim
   min-height:0;
   display:grid;
   grid-template-columns:repeat(2,minmax(220px,1fr));
-  grid-template-rows:repeat(4,minmax(78px,1fr));
+  grid-template-rows:repeat(5,minmax(64px,1fr));
   gap:12px;
 }
 .mode-btn{
@@ -3544,6 +3545,76 @@ button,input,select{touch-action:manipulation}
   .rule-step{flex:0 0 120px}
 }
 
+
+
+/* ===== Trial match / local 2-player ===== */
+.mode-btn[data-mode="trial"]{border-color:rgba(199,163,90,.38)}
+.mode-btn[data-mode="trial"] .mode-icon{color:#e0c577}
+.trial-screen{
+  position:absolute;inset:0;z-index:14;padding:clamp(12px,2vw,28px);
+  display:flex;flex-direction:column;opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateY(8px);transition:opacity .32s ease,transform .32s ease,visibility .32s;
+}
+.trial-screen.active{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+.trial-content{flex:1;min-height:0;padding-top:14px;display:flex;flex-direction:column}
+.trial-step{flex:1;min-height:0;display:flex;flex-direction:column}
+.trial-step.hidden{display:none}
+.trial-panel{
+  flex:1;min-height:0;border:1px solid rgba(199,163,90,.17);
+  background:linear-gradient(180deg,rgba(16,19,23,.92),rgba(5,7,9,.96));
+  box-shadow:inset 0 0 42px rgba(0,0,0,.42);padding:16px;
+}
+.trial-intro{color:#7b8287;font-size:11px;line-height:1.8;margin-bottom:13px}
+.trial-intro b{color:#d3bd85}
+.trial-owner-grid{display:grid;grid-template-columns:repeat(3,minmax(190px,1fr));gap:10px;overflow:auto;max-height:calc(100vh - 210px)}
+.trial-builder{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,.7fr);gap:14px}
+.trial-pool-panel,.trial-deck-panel{
+  min-height:0;border:1px solid rgba(199,163,90,.16);
+  background:linear-gradient(180deg,rgba(16,19,23,.92),rgba(5,7,9,.96));
+  box-shadow:inset 0 0 38px rgba(0,0,0,.38)
+}
+.trial-pool-panel{display:flex;flex-direction:column}
+.trial-toolbar{display:flex;gap:8px;padding:10px;border-bottom:1px solid rgba(255,255,255,.055)}
+.trial-search,.trial-sort,.trial-name-input{
+  height:36px;border:1px solid rgba(199,163,90,.20);background:#090b0e;color:#d0c7b4;
+  padding:0 10px;font-family:inherit;outline:none
+}
+.trial-search{flex:1;min-width:0}.trial-sort{width:140px}.trial-name-input{width:100%;margin-top:8px}
+.trial-card-pool{flex:1;min-height:0;overflow:auto;padding:8px}
+.trial-card-row{
+  display:grid;grid-template-columns:58px minmax(0,1fr) 54px 154px;gap:8px;align-items:center;
+  padding:9px;margin-bottom:7px;border:1px solid rgba(255,255,255,.06);
+  background:linear-gradient(90deg,rgba(24,28,32,.88),rgba(8,10,12,.94))
+}
+.trial-card-no{color:#74684e;font:9px/1 Consolas,monospace}
+.trial-card-main{min-width:0}.trial-card-name{display:block;color:#ddd0b4;font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trial-card-meta{display:block;margin-top:4px;color:#626a70;font:8px/1.3 Consolas,monospace}
+.trial-card-count{text-align:center;color:#d3b66e;font:700 14px/1 Consolas,monospace}
+.trial-card-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px}
+.trial-card-actions button,.trial-mini-btn{
+  min-height:32px;border:1px solid rgba(199,163,90,.18);background:#0b0e11;color:#9e8b66;
+  font-family:inherit;font-size:9px;cursor:pointer
+}
+.trial-card-actions button:hover:not(:disabled),.trial-mini-btn:hover:not(:disabled){color:#f0d99f;border-color:rgba(199,163,90,.52)}
+.trial-card-actions button:disabled,.trial-mini-btn:disabled{opacity:.28;cursor:not-allowed}
+.trial-deck-panel{padding:15px;display:flex;flex-direction:column}
+.trial-deck-title{color:#d4bf8d;font-size:19px;letter-spacing:.08em}
+.trial-deck-sub{margin-top:5px;color:#60686e;font:8px/1.45 Consolas,monospace}
+.trial-deck-count{margin-top:13px;padding:10px;border:1px solid rgba(199,163,90,.13);background:rgba(0,0,0,.22);color:#8d826d;font:9px/1.4 Consolas,monospace}
+.trial-deck-count b{color:#e2c374;font-size:18px}
+.trial-deck-list{flex:1;min-height:90px;overflow:auto;margin-top:10px;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:5px 0}
+.trial-deck-row{display:flex;justify-content:space-between;gap:8px;padding:6px 2px;color:#a9a18e;font-size:10px}
+.trial-deck-row span:last-child{color:#d0af66;font-family:Consolas,monospace}
+.trial-status{min-height:42px;margin-top:10px;padding:9px 10px;border:1px solid rgba(255,255,255,.055);background:rgba(0,0,0,.22);color:#737a7f;font-size:9px;line-height:1.55}
+.trial-status.good{color:#81aa86;border-color:rgba(91,139,96,.28)}
+.trial-status.bad{color:#b77b76;border-color:rgba(164,69,61,.28)}
+.trial-start-btn{min-height:43px;margin-top:9px;border:1px solid rgba(199,163,90,.30);background:linear-gradient(180deg,#312515,#130f08);color:#d6bf86;font-family:inherit;cursor:pointer}
+.trial-start-btn:hover:not(:disabled){color:#fff0bd;border-color:#c09c52}.trial-start-btn:disabled{opacity:.30;cursor:not-allowed}
+.trial-owner-back{margin-top:8px;min-height:36px;border:1px solid rgba(199,163,90,.18);background:#0b0e11;color:#8d8065;font-family:inherit;cursor:pointer}
+.trial-note{margin-top:8px;color:#596168;font-size:9px;line-height:1.55}
+@media(max-width:920px){.trial-owner-grid{grid-template-columns:repeat(2,minmax(180px,1fr))}.trial-builder{grid-template-columns:1fr}.trial-deck-panel{min-height:310px}.trial-content{overflow:auto}}
+@media(max-width:620px){.trial-screen{padding:7px}.trial-owner-grid{grid-template-columns:1fr}.trial-card-row{grid-template-columns:48px minmax(0,1fr) 42px}.trial-card-actions{grid-column:2/4}.trial-toolbar{flex-wrap:wrap}.trial-search{flex-basis:100%}.trial-sort{flex:1;width:auto}}
+
 </style>
 </head>
 <body>
@@ -3600,6 +3671,9 @@ button,input,select{touch-action:manipulation}
         </button>
         <button class="mode-btn" data-mode="practice">
           <span class="mode-icon">練</span><span class="mode-name">プラクティス</span><span class="mode-en">PRACTICE MODE</span>
+        </button>
+        <button class="mode-btn" data-mode="trial">
+          <span class="mode-icon">対</span><span class="mode-name">お試し対戦</span><span class="mode-en">TRIAL MATCH</span>
         </button>
         <button class="mode-btn" data-mode="event">
           <span class="mode-icon">EV</span><span class="mode-name">イベント</span><span class="mode-en">EVENT MODE</span>
@@ -3667,6 +3741,55 @@ button,input,select{touch-action:manipulation}
       </div>
     </div>
   </section>
+
+  <section class="trial-screen" id="trialScreen" aria-label="お試し対戦">
+    <header class="practice-topbar">
+      <div class="practice-heading">
+        <div class="practice-emblem">対</div>
+        <div><h2>お試し対戦</h2><small>TRIAL MATCH // LOCAL 2 PLAYERS</small></div>
+      </div>
+      <button class="mode-main-back" id="trialMainBackBtn">← メインメニュー</button>
+    </header>
+
+    <div class="trial-content">
+      <div class="trial-step" id="trialOwnerStep">
+        <div class="trial-panel">
+          <div class="trial-intro"><b>STEP 1 // データの持ち主</b><br>保存済みの自分のデッキから、この対戦で使用するデッキを選んでください。お試し対戦の結果やゲストデッキはセーブデータに保存されません。</div>
+          <div class="trial-owner-grid" id="trialOwnerDeckGrid"></div>
+        </div>
+      </div>
+
+      <div class="trial-step hidden" id="trialGuestStep">
+        <div class="trial-builder">
+          <section class="trial-pool-panel">
+            <div class="trial-toolbar">
+              <input class="trial-search" id="trialCardSearch" type="search" placeholder="カード名・タイプで検索" aria-label="お試し対戦カード検索">
+              <select class="trial-sort" id="trialCardSort" aria-label="並び順">
+                <option value="number">カード番号順</option>
+                <option value="rarity">レアリティ順</option>
+                <option value="type">タイプ順</option>
+                <option value="name">名前順</option>
+              </select>
+            </div>
+            <div class="trial-card-pool" id="trialCardPool"></div>
+          </section>
+
+          <aside class="trial-deck-panel">
+            <div class="trial-deck-title">ゲストデッキ</div>
+            <div class="trial-deck-sub">CURRENT PACK CARD POOL // TEMPORARY DECK</div>
+            <input class="trial-name-input" id="trialGuestName" maxlength="20" value="ゲスト" aria-label="ゲスト名">
+            <div class="trial-deck-count">DECK // <b id="trialDeckCount">0</b> / 40〜100</div>
+            <div class="trial-deck-list" id="trialDeckList"></div>
+            <div class="trial-status" id="trialDeckStatus">40〜100枚になるようにカードを選んでください。</div>
+            <button type="button" class="trial-start-btn" id="trialBattleStartBtn" disabled>デッキを完成させて対戦準備へ</button>
+            <button type="button" class="trial-owner-back" id="trialOwnerBackBtn">← 持ち主のデッキを選び直す</button>
+            <div class="trial-note">同名カードは原則3枚まで / 神タイプは1種類まで / カード固有の投入制限を優先。カードプールは現在のパック収録カードの集合です。</div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <section class="practice-screen" id="practiceScreen" aria-label="プラクティス">
     <header class="practice-topbar">
@@ -3886,7 +4009,7 @@ button,input,select{touch-action:manipulation}
     </header>
 
     <div class="pack-view pack-list-view active" id="packListView">
-      <div class="pack-list-guide"><span><b>パック一覧</b>から確認したいパックを選択してください。</span><span>AVAILABLE PACKS // 01</span></div>
+      <div class="pack-list-guide"><span><b>パック一覧</b>から確認したいパックを選択してください。</span><span>AVAILABLE PACKS // 02</span></div>
       <div class="pack-grid" id="packGrid"></div>
     </div>
 
@@ -4314,6 +4437,19 @@ const deckSearch=document.getElementById('deckSearch');
 const deckSort=document.getElementById('deckSort');
 
 
+const trialScreen=document.getElementById('trialScreen');
+const trialOwnerStep=document.getElementById('trialOwnerStep');
+const trialGuestStep=document.getElementById('trialGuestStep');
+const trialOwnerDeckGrid=document.getElementById('trialOwnerDeckGrid');
+const trialCardSearch=document.getElementById('trialCardSearch');
+const trialCardSort=document.getElementById('trialCardSort');
+const trialCardPool=document.getElementById('trialCardPool');
+const trialGuestName=document.getElementById('trialGuestName');
+const trialDeckCount=document.getElementById('trialDeckCount');
+const trialDeckList=document.getElementById('trialDeckList');
+const trialDeckStatus=document.getElementById('trialDeckStatus');
+const trialBattleStartBtn=document.getElementById('trialBattleStartBtn');
+
 const practiceScreen=document.getElementById('practiceScreen');
 const practiceStageList=document.getElementById('practiceStageList');
 const practiceProgressTitle=document.getElementById('practiceProgressTitle');
@@ -4568,6 +4704,7 @@ function updateNameState(){
 }
 function showMainMenu(data){
   collectionScreen.classList.remove('active');
+  trialScreen.classList.remove('active');
   deckScreen.classList.remove('active');
   currentPlayerData=data;
   currentPlayerName=data.playerName||'';
@@ -4588,6 +4725,7 @@ function showTitleScreen(){
   battleScreen.classList.remove('active');
   currentBattleSession=null;
   collectionScreen.classList.remove('active');
+  trialScreen.classList.remove('active');
   deckScreen.classList.remove('active');
   packScreen.classList.remove('active');
   mainMenu.classList.remove('active');
@@ -5268,6 +5406,11 @@ let currentBattleSession=null;
 let selectedPracticeDeckIndex=null;
 let pendingCardUseTimer=null;
 
+let trialOwnerDeckIndex=null;
+let trialGuestDeckCards={};
+let trialJankenStage='owner';
+let trialOwnerJankenHand=null;
+
 const BATTLE_PHASES=['start','draw','main','attack','end'];
 const BATTLE_PHASE_LABELS={
   start:'START STEP',
@@ -5318,6 +5461,231 @@ function buildPracticeCpuDeck(stageIndex){
   return shuffleArray(cards);
 }
 
+
+
+function trialReleasedCards(){
+  const released=releasedPackCardNos();
+  return CARD_DATABASE.filter(card=>released.has(Number(card.no)));
+}
+function trialCardLimit(card){
+  if(!card)return 0;
+  if(card.no===1)return 100;
+  if(card.no===31||card.no===42)return 1;
+  return 3;
+}
+function trialGodTypeNo(){
+  const entry=Object.entries(trialGuestDeckCards)
+    .find(([no,count])=>Number(count)>0&&CARD_BY_NO.get(String(no))?.type==='神タイプ');
+  return entry?Number(entry[0]):null;
+}
+function validateTrialDeck(cards=trialGuestDeckCards){
+  const reasons=[];
+  const total=getDeckTotal(cards);
+  if(total<40||total>100)reasons.push(`枚数 ${total} / 40〜100`);
+  const godKinds=new Set();
+  for(const [no,countRaw] of Object.entries(cards||{})){
+    const card=CARD_BY_NO.get(String(no));
+    const count=Number(countRaw)||0;
+    if(!card||count<=0)continue;
+    if(!isCardReleasedInPack(card.no))reasons.push(`${card.name}: 現在のパック未収録`);
+    const limit=trialCardLimit(card);
+    if(count>limit)reasons.push(`${card.name}: ${limit}枚制限`);
+    if(card.type==='神タイプ')godKinds.add(card.no);
+  }
+  if(godKinds.size>1)reasons.push('神タイプは1種類まで');
+  return {ok:reasons.length===0,reasons,total};
+}
+function canAddTrialCard(card){
+  if(!card||!isCardReleasedInPack(card.no))return {ok:false,msg:'現在のパック未収録'};
+  const total=getDeckTotal(trialGuestDeckCards);
+  if(total>=100)return {ok:false,msg:'デッキは100枚まで'};
+  const now=Number(trialGuestDeckCards[String(card.no)])||0;
+  const limit=trialCardLimit(card);
+  if(now>=limit)return {ok:false,msg:card.no===1?'デッキは100枚まで':`${limit}枚まで`};
+  if(card.type==='神タイプ'){
+    const existing=trialGodTypeNo();
+    if(existing!==null&&existing!==card.no)return {ok:false,msg:'神タイプは1種類まで'};
+  }
+  return {ok:true,msg:''};
+}
+function renderTrialOwnerDecks(){
+  ensureDeckSlots(currentPlayerData);
+  trialOwnerDeckGrid.innerHTML='';
+  let hasAny=false;
+  currentPlayerData.decks.forEach((deck,index)=>{
+    if(!deck)return;
+    hasAny=true;
+    const check=validateBattleDeck(deck);
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='battle-deck-choice';
+    btn.disabled=!check.ok;
+    btn.innerHTML=`<b>SLOT ${String(index+1).padStart(2,'0')} // ${escapeHtml(deck.name||`デッキ ${index+1}`)}</b><span>${getDeckTotal(deck.cards)} CARDS</span><span class="${check.ok?'':'invalid'}">${check.ok?'このデッキを使う':'使用不可 // '+escapeHtml(check.reasons.join(' / '))}</span>`;
+    if(check.ok)btn.addEventListener('click',()=>selectTrialOwnerDeck(index));
+    trialOwnerDeckGrid.append(btn);
+  });
+  if(!hasAny)trialOwnerDeckGrid.innerHTML='<div class="collection-empty">保存済みデッキがありません。<br>先にデッキ構築で40〜100枚のデッキを作成してください。</div>';
+}
+function selectTrialOwnerDeck(index){
+  ensureDeckSlots(currentPlayerData);
+  const deck=currentPlayerData.decks[index];
+  const check=validateBattleDeck(deck);
+  if(!check.ok){showMenuNotice(check.reasons.join(' / '));return}
+  trialOwnerDeckIndex=index;
+  trialGuestDeckCards={};
+  trialOwnerStep.classList.add('hidden');
+  trialGuestStep.classList.remove('hidden');
+  trialCardSearch.value='';
+  trialCardSort.value='number';
+  renderTrialBuilder();
+}
+function sortTrialCards(cards){
+  const rarityOrder={LR:0,SR:1,R:2,UC:3,C:4};
+  const mode=trialCardSort.value;
+  return [...cards].sort((a,b)=>{
+    if(mode==='rarity')return (rarityOrder[a.rarity]??9)-(rarityOrder[b.rarity]??9)||a.no-b.no;
+    if(mode==='type')return String(a.type).localeCompare(String(b.type),'ja')||a.no-b.no;
+    if(mode==='name')return String(a.name).localeCompare(String(b.name),'ja')||a.no-b.no;
+    return a.no-b.no;
+  });
+}
+function renderTrialBuilder(){
+  const q=trialCardSearch.value.trim().toLowerCase();
+  const cards=sortTrialCards(trialReleasedCards().filter(card=>!q||`${card.name} ${card.type} ${card.rarity} ${formatCardNo(card.no)}`.toLowerCase().includes(q)));
+  trialCardPool.innerHTML='';
+  cards.forEach(card=>{
+    const key=String(card.no);
+    const count=Number(trialGuestDeckCards[key])||0;
+    const addCheck=canAddTrialCard(card);
+    const row=document.createElement('div');
+    row.className='trial-card-row';
+    row.innerHTML=`<div class="trial-card-no">${formatCardNo(card.no)}</div><div class="trial-card-main"><span class="trial-card-name">${escapeHtml(card.name)}</span><span class="trial-card-meta">${card.rarity} // ${escapeHtml(card.type)}</span></div><div class="trial-card-count">×${count}</div>`;
+    const actions=document.createElement('div');actions.className='trial-card-actions';
+    const minus=document.createElement('button');minus.type='button';minus.textContent='−';minus.disabled=count<=0;minus.addEventListener('click',()=>removeTrialCard(card.no));
+    const plus=document.createElement('button');plus.type='button';plus.textContent='＋';plus.disabled=!addCheck.ok;plus.title=addCheck.msg;plus.addEventListener('click',()=>addTrialCard(card.no));
+    const info=document.createElement('button');info.type='button';info.textContent='効果';info.addEventListener('click',()=>openCardInfo(card));
+    actions.append(minus,plus,info);row.append(actions);trialCardPool.append(row);
+  });
+
+  const selected=Object.entries(trialGuestDeckCards)
+    .filter(([,count])=>Number(count)>0)
+    .map(([no,count])=>({card:CARD_BY_NO.get(String(no)),count:Number(count)}))
+    .filter(x=>x.card).sort((a,b)=>a.card.no-b.card.no);
+  trialDeckList.innerHTML=selected.length?'':'<div class="collection-empty">カードを追加してください。</div>';
+  selected.forEach(({card,count})=>{
+    const row=document.createElement('div');row.className='trial-deck-row';
+    row.innerHTML=`<span>${formatCardNo(card.no)} ${escapeHtml(card.name)}</span><span>×${count}</span>`;
+    trialDeckList.append(row);
+  });
+  const check=validateTrialDeck();
+  trialDeckCount.textContent=check.total;
+  trialDeckStatus.className='trial-status '+(check.ok?'good':'bad');
+  trialDeckStatus.textContent=check.ok?'デッキ完成 // 対戦準備へ進めます。':check.reasons.join(' / ');
+  trialBattleStartBtn.disabled=!check.ok||trialOwnerDeckIndex===null;
+  trialBattleStartBtn.textContent=check.ok?'この2つのデッキで対戦準備へ':'デッキを完成させて対戦準備へ';
+}
+function addTrialCard(cardNo){
+  const card=CARD_BY_NO.get(String(cardNo));
+  const check=canAddTrialCard(card);if(!check.ok){showMenuNotice(check.msg);return}
+  const key=String(card.no);trialGuestDeckCards[key]=(Number(trialGuestDeckCards[key])||0)+1;renderTrialBuilder();
+}
+function removeTrialCard(cardNo){
+  const key=String(cardNo);const now=Number(trialGuestDeckCards[key])||0;if(now<=0)return;
+  if(now<=1)delete trialGuestDeckCards[key];else trialGuestDeckCards[key]=now-1;renderTrialBuilder();
+}
+function openTrialMode(){
+  ensureDeckSlots(currentPlayerData);
+  trialOwnerDeckIndex=null;trialGuestDeckCards={};
+  trialOwnerStep.classList.remove('hidden');trialGuestStep.classList.add('hidden');
+  mainMenu.classList.remove('active');closeAllModeScreens();trialScreen.classList.add('active');renderTrialOwnerDecks();
+}
+function closeTrialMode(){
+  trialScreen.classList.remove('active');trialOwnerDeckIndex=null;trialGuestDeckCards={};mainMenu.classList.add('active');
+}
+function backTrialOwnerDeck(){
+  trialGuestStep.classList.add('hidden');trialOwnerStep.classList.remove('hidden');trialOwnerDeckIndex=null;trialGuestDeckCards={};renderTrialOwnerDecks();
+}
+function createTrialBattleSession(){
+  ensureDeckSlots(currentPlayerData);
+  const ownerDeck=currentPlayerData.decks[trialOwnerDeckIndex];
+  const ownerCheck=validateBattleDeck(ownerDeck);const guestCheck=validateTrialDeck();
+  if(!ownerCheck.ok){showMenuNotice(ownerCheck.reasons.join(' / '));return null}
+  if(!guestCheck.ok){showMenuNotice(guestCheck.reasons.join(' / '));return null}
+  const guestName=(trialGuestName.value||'ゲスト').trim().slice(0,20)||'ゲスト';
+  const guestDeck={name:`${guestName}デッキ`,cards:JSON.parse(JSON.stringify(trialGuestDeckCards))};
+  const playerFullDeck=shuffleArray(expandedDeckCards(ownerDeck));
+  const enemyFullDeck=shuffleArray(expandedDeckCards(guestDeck));
+  currentBattleSession={
+    trialMode:true,trialPerspective:'owner',trialJankenWinner:null,
+    stageName:'お試し対戦',stageEn:'TRIAL MATCH',
+    playerDisplayName:currentPlayerName||'PLAYER',enemyDisplayName:guestName,
+    playerDeckName:ownerDeck.name||`デッキ ${trialOwnerDeckIndex+1}`,enemyDeckName:guestDeck.name,enemyDeckSummary:`${guestCheck.total} CARDS`,
+    playerDeck:[...playerFullDeck],playerHand:[],playerGrave:[],playerField:[],
+    enemyDeck:[...enemyFullDeck],enemyHand:[],enemyGrave:[],enemyField:[],
+    playerLife:5,enemyLife:5,playerCount:0,enemyCount:0,playerOwnTurn:0,enemyOwnTurn:0,
+    firstPlayer:null,activePlayer:null,turnNumber:0,phase:'start',playerSummonedThisTurn:false,enemySummonedThisTurn:false,
+    attackCounts:{},nextUnitId:1,playerWallTurns:0,enemyWallTurns:0,playerEffectLockTurns:0,enemyEffectLockTurns:0,
+    pendingAction:null,pendingDiscardCount:0,pendingDiscardReason:'',jankenResult:null,chain:[],over:false,animating:false,battleStarted:false
+  };
+  for(let i=0;i<5;i++)drawCard('player',{silent:true});
+  for(let i=0;i<5;i++)drawCard('enemy',{silent:true});
+  return currentBattleSession;
+}
+function startTrialPrebattle(){
+  const session=createTrialBattleSession();if(!session)return;
+  trialScreen.classList.remove('active');prebattleScreen.classList.add('active');battleScreen.classList.remove('active');
+  prebattleDeckSelect.classList.add('hidden');jankenFlow.classList.remove('hidden');
+  prebattleStageLabel.textContent='TRIAL MATCH // LOCAL 2 PLAYERS';
+  document.getElementById('prebattleBackBtn').textContent='← お試し対戦へ戻る';
+  trialJankenStage='owner';trialOwnerJankenHand=null;resetJankenUI();
+  jankenPhase.textContent='TRIAL MATCH // OWNER JANKEN';
+  jankenMessage.textContent=`${session.playerDisplayName}：じゃんけんの手を選んでください`;
+  prebattleHand.innerHTML='';
+}
+function playTrialJanken(choice){
+  const session=currentBattleSession;if(!session?.trialMode)return;
+  if(trialJankenStage==='owner'){
+    trialOwnerJankenHand=choice;trialJankenStage='guest';
+    jankenPhase.textContent='TRIAL MATCH // GUEST JANKEN';
+    jankenMessage.textContent=`${session.enemyDisplayName}：画面を受け取り、手を選んでください`;
+    jankenResult.classList.add('show');jankenResult.textContent='持ち主の手は預かりました。ゲストが選ぶまで非表示です。';
+    return;
+  }
+  const result=jankenWinner(trialOwnerJankenHand,choice);
+  jankenResult.classList.add('show');
+  if(result===0){
+    jankenResult.innerHTML=`${escapeHtml(session.playerDisplayName)}：<b>${jankenLabel(trialOwnerJankenHand)}</b>　${escapeHtml(session.enemyDisplayName)}：<b>${jankenLabel(choice)}</b><br>あいこです。もう一度、持ち主から選んでください。`;
+    jankenMessage.textContent=`あいこ // ${session.playerDisplayName}からもう一度選んでください`;trialJankenStage='owner';trialOwnerJankenHand=null;jankenPhase.textContent='TRIAL MATCH // OWNER JANKEN';
+    return;
+  }
+  const winner=result===1?'owner':'guest';session.trialJankenWinner=winner;session.jankenResult='win';
+  const winnerName=winner==='owner'?session.playerDisplayName:session.enemyDisplayName;
+  jankenMessage.textContent=`${winnerName} の勝ち`;
+  jankenResult.innerHTML=`${escapeHtml(session.playerDisplayName)}：<b>${jankenLabel(trialOwnerJankenHand)}</b>　${escapeHtml(session.enemyDisplayName)}：<b>${jankenLabel(choice)}</b><br><b>${escapeHtml(winnerName)}が先攻・後攻を選びます。</b>`;
+  renderPrebattleHand(winner==='owner'?session.playerHand:session.enemyHand);
+  turnChoiceArea.classList.add('show');turnChoiceButtons.style.display='grid';battleContinueBtn.classList.remove('show');
+  jankenPhase.textContent=`WINNER // ${winner==='owner'?'OWNER':'GUEST'} // INITIAL HAND`;
+}
+function swapTrialPerspective(){
+  const s=currentBattleSession;if(!s?.trialMode)return;
+  const suffixes=['AttackLockedTurn','Banished','BossEndHandledTurn','BossGravePending','ComebackSummonTurn','Count','Deck','DeckName','DoubleSummonTurn','EffectLockTurns','EffectsDisabledTurn','Field','FutureAtkPenalty','Grave','Hand','Life','OwnTurn','SummonCountThisTurn','SummonedThisTurn','WallTurns','DisplayName'];
+  suffixes.forEach(suffix=>{const p='player'+suffix,e='enemy'+suffix;const tmp=s[p];s[p]=s[e];s[e]=tmp});
+  [s.playerField,s.enemyField].forEach(field=>(field||[]).forEach(unit=>{
+    if(unit.owner==='player')unit.owner='enemy';else if(unit.owner==='enemy')unit.owner='player';
+    if(unit.originalOwner==='player')unit.originalOwner='enemy';else if(unit.originalOwner==='enemy')unit.originalOwner='player';
+  }));
+  if(s.firstPlayer==='player')s.firstPlayer='enemy';else if(s.firstPlayer==='enemy')s.firstPlayer='player';
+  if(Array.isArray(s.bossRescueQueue))s.bossRescueQueue.forEach(item=>{if(item?.owner==='player')item.owner='enemy';else if(item?.owner==='enemy')item.owner='player'});
+  if(s.pendingBossSave?.owner==='player')s.pendingBossSave.owner='enemy';else if(s.pendingBossSave?.owner==='enemy')s.pendingBossSave.owner='player';
+  s.trialPerspective=s.trialPerspective==='owner'?'guest':'owner';
+  s.activePlayer=null;s.pendingAction=null;s.pendingDiscardCount=0;s.pendingDiscardReason='';s.pendingUseConfirm=null;s.attackCounts={};
+}
+function returnBattleToTrial(){
+  clearCardUseConfirmation(false);closeCardInfo();closeGraveViewer();prebattleScreen.classList.remove('active');battleScreen.classList.remove('active');
+  battleResultOverlay.classList.remove('show');battleTurnIntro.classList.remove('show','enemy');battleScreen.classList.remove('player-life-danger');
+  currentBattleSession=null;trialJankenStage='owner';trialOwnerJankenHand=null;trialScreen.classList.add('active');
+  trialOwnerStep.classList.add('hidden');trialGuestStep.classList.remove('hidden');renderTrialBuilder();
+}
 
 function shuffleArray(list){
   const a=[...list];
@@ -5520,6 +5888,7 @@ function jankenLabel(hand){
 }
 function playJanken(playerHandChoice){
   if(!currentBattleSession)return;
+  if(currentBattleSession.trialMode){playTrialJanken(playerHandChoice);return;}
   const hands=['rock','scissors','paper'];
   const cpu=hands[Math.floor(Math.random()*hands.length)];
   const result=jankenWinner(playerHandChoice,cpu);
@@ -5560,7 +5929,12 @@ function playJanken(playerHandChoice){
 }
 function chooseTurnOrder(order){
   if(!currentBattleSession||currentBattleSession.jankenResult!=='win')return;
-  currentBattleSession.firstPlayer=order==='first'?'player':'enemy';
+  if(currentBattleSession.trialMode){
+    const winner=currentBattleSession.trialJankenWinner==='guest'?'enemy':'player';
+    currentBattleSession.firstPlayer=order==='first'?winner:(winner==='player'?'enemy':'player');
+  }else{
+    currentBattleSession.firstPlayer=order==='first'?'player':'enemy';
+  }
   enterBattleScreen();
 }
 
@@ -5576,7 +5950,7 @@ function setPendingMessage(message='',active=false){
   battlePending.textContent=message||'READY // 操作待ち';
   battlePending.classList.toggle('active',!!active);
 }
-function sideLabel(owner){return owner==='player'?'あなた':'CPU'}
+function sideLabel(owner){if(currentBattleSession?.trialMode)return owner==='player'?(currentBattleSession.playerDisplayName||'PLAYER'):(currentBattleSession.enemyDisplayName||'GUEST');return owner==='player'?'あなた':'CPU'}
 function getOwnerTurn(owner){
   return owner==='player'?currentBattleSession.playerOwnTurn:currentBattleSession.enemyOwnTurn;
 }
@@ -5712,7 +6086,7 @@ function checkLifeWin(){
     return true;
   }
   if(currentBattleSession.enemyLife<=0){
-    finishBattle('player','CPUのライフを0にしました');
+    finishBattle('player',currentBattleSession?.trialMode?`${sideLabel('enemy')}のライフを0にしました`:'CPUのライフを0にしました');
     return true;
   }
   return false;
@@ -5721,6 +6095,13 @@ function finishBattle(winner,reason){
   if(!currentBattleSession||currentBattleSession.over)return;
   currentBattleSession.over=true;
   const playerWin=winner==='player';
+  if(currentBattleSession.trialMode){
+    const winnerName=winner==='player'?currentBattleSession.playerDisplayName:currentBattleSession.enemyDisplayName;
+    battleResultTitle.textContent='MATCH END';
+    battleResultText.textContent=`${winnerName} の勝利。${reason}。お試し対戦の結果はセーブデータに保存されません。`;
+    document.getElementById('battleResultBackBtn').textContent='お試し対戦へ戻る';
+    battleResultOverlay.classList.add('show');battleNextPhaseBtn.disabled=true;battleEndTurnBtn.disabled=true;return;
+  }
   const clearResult=playerWin?completePracticeStage(currentBattleSession.practiceIndex??0):null;
 
   battleResultTitle.textContent=playerWin?'WIN':'LOSE';
@@ -5821,6 +6202,16 @@ function resolveEndStep(){
   // 山札0枚になったターンのエンドステップで敗北。
   if(state.deck.length===0){
     finishBattle(owner==='player'?'enemy':'player',`${sideLabel(owner)}の山札が0枚のままエンドステップを迎えました`);
+    return;
+  }
+
+  if(currentBattleSession.trialMode){
+    swapTrialPerspective();
+    renderBattle();
+    showTurnIntro('player',()=>{
+      if(!currentBattleSession||currentBattleSession.over)return;
+      beginTurn('player');
+    });
     return;
   }
 
@@ -6311,14 +6702,20 @@ function playLifeDamageFx(owner,amount=1){
   spawnBattleFloat(box,`-${amount} LIFE`,'life');
 }
 function showTurnIntro(owner,callback){
-  battleTurnIntro.classList.remove('show','enemy');
-  battleTurnIntroMain.textContent=owner==='player'?'あなた 先攻':'CPU 先攻';
-  battleTurnIntroSub.textContent=owner==='player'?'YOU TAKE THE FIRST TURN':'OPPONENT TAKES THE FIRST TURN';
-  if(owner==='enemy')battleTurnIntro.classList.add('enemy');
+  battleTurnIntro.classList.remove('show','enemy','trial-pass');
+  if(currentBattleSession?.trialMode){
+    battleTurnIntro.classList.add('trial-pass');
+    battleTurnIntroMain.textContent=`${currentBattleSession.playerDisplayName||'PLAYER'} のターン`;
+    battleTurnIntroSub.textContent='PASS THE DEVICE // CURRENT PLAYER HAND IS NOW ACTIVE';
+  }else{
+    battleTurnIntroMain.textContent=owner==='player'?'あなた 先攻':'CPU 先攻';
+    battleTurnIntroSub.textContent=owner==='player'?'YOU TAKE THE FIRST TURN':'OPPONENT TAKES THE FIRST TURN';
+    if(owner==='enemy')battleTurnIntro.classList.add('enemy');
+  }
   void battleTurnIntro.offsetWidth;
   battleTurnIntro.classList.add('show');
   setTimeout(()=>{
-    battleTurnIntro.classList.remove('show','enemy');
+    battleTurnIntro.classList.remove('show','enemy','trial-pass');
     if(typeof callback==='function')callback();
   },1050);
 }
@@ -6857,7 +7254,8 @@ function renderBattleHand(){
 function renderBattle(){
   if(!currentBattleSession)return;
 
-  battlePlayerName.textContent=currentPlayerName||'PLAYER';
+  battlePlayerName.textContent=currentBattleSession.trialMode?(currentBattleSession.playerDisplayName||'PLAYER'):(currentPlayerName||'PLAYER');
+  battleEnemyName.textContent=currentBattleSession.trialMode?(currentBattleSession.enemyDisplayName||'GUEST'):`${currentBattleSession.stageName} CPU`;
   battlePlayerLife.textContent=currentBattleSession.playerLife;
   battlePlayerCount.textContent=currentBattleSession.playerCount;
   battlePlayerDeckCount.textContent=currentBattleSession.playerDeck.length;
@@ -6874,7 +7272,7 @@ function renderBattle(){
   battleEnemyBox.classList.toggle('life-danger',currentBattleSession.enemyLife===1&&!currentBattleSession.over);
   battleScreen.classList.toggle('player-life-danger',currentBattleSession.playerLife===1&&!currentBattleSession.over);
 
-  const who=currentBattleSession.activePlayer==='player'?'あなた':(currentBattleSession.activePlayer==='enemy'?'CPU':'準備中');
+  const who=currentBattleSession.activePlayer==='player'?(currentBattleSession.trialMode?(currentBattleSession.playerDisplayName||'PLAYER'):'あなた'):(currentBattleSession.activePlayer==='enemy'?(currentBattleSession.trialMode?(currentBattleSession.enemyDisplayName||'GUEST'):'CPU'):'準備中');
   const phaseLabel=currentBattleSession.activePlayer?BATTLE_PHASE_LABELS[currentBattleSession.phase]:'TURN ORDER';
   battleTurnIndicator.innerHTML=`TURN ${currentBattleSession.turnNumber} // ${who}<br><strong>${phaseLabel}</strong>`;
 
@@ -6893,6 +7291,7 @@ function enterBattleScreen(){
   if(!currentBattleSession)return;
   prebattleScreen.classList.remove('active');
   practiceScreen.classList.remove('active');
+  trialScreen.classList.remove('active');
   battleScreen.classList.add('active');
   battleResultOverlay.classList.remove('show');
   battleScreen.classList.remove('player-life-danger');
@@ -6900,18 +7299,39 @@ function enterBattleScreen(){
   battleEnemyBox.classList.remove('life-danger','life-hit');
   battleLog.innerHTML='';
   setPendingMessage('TURN ORDER // 先攻・後攻を確認中',true);
+
+  const first=currentBattleSession.firstPlayer==='enemy'?'enemy':'player';
+  currentBattleSession.firstPlayer=first;
+
+  if(currentBattleSession.trialMode){
+    document.getElementById('battleExitBtn').textContent='← お試し対戦へ戻る';
+    document.getElementById('battleResultBackBtn').textContent='お試し対戦へ戻る';
+    battleStageLabel.textContent='TRIAL MATCH // LOCAL 2 PLAYERS';
+    battleLogAdd(`${currentBattleSession.playerDisplayName}：${currentBattleSession.playerDeckName}`);
+    battleLogAdd(`${currentBattleSession.enemyDisplayName}：${currentBattleSession.enemyDeckName}`);
+    if(first==='enemy')swapTrialPerspective();
+    currentBattleSession.activePlayer=null;
+    currentBattleSession.battleStarted=false;
+    renderBattle();
+    showTurnIntro('player',()=>{
+      if(!currentBattleSession||currentBattleSession.over)return;
+      currentBattleSession.battleStarted=true;
+      beginTurn('player');
+    });
+    return;
+  }
+
+  document.getElementById('battleExitBtn').textContent='← プラクティスへ戻る';
+  document.getElementById('battleResultBackBtn').textContent='プラクティスへ戻る';
   battleStageLabel.textContent=`PRACTICE // ${currentBattleSession.stageEn||'PRACTICE'}`;
   battleEnemyName.textContent=`${currentBattleSession.stageName} CPU`;
   battleLogAdd(`使用デッキ：${currentBattleSession.playerDeckName}`);
   battleLogAdd(`${currentBattleSession.enemyDeckName}：${currentBattleSession.enemyDeckSummary}`);
   battleLogAdd(`初期手札：あなた${currentBattleSession.playerHand.length}枚 / CPU${currentBattleSession.enemyHand.length}枚`);
 
-  const first=currentBattleSession.firstPlayer==='enemy'?'enemy':'player';
-  currentBattleSession.firstPlayer=first;
   currentBattleSession.activePlayer=null;
   currentBattleSession.battleStarted=false;
   renderBattle();
-
   showTurnIntro(first,()=>{
     if(!currentBattleSession||currentBattleSession.over)return;
     currentBattleSession.battleStarted=true;
@@ -6920,6 +7340,7 @@ function enterBattleScreen(){
   });
 }
 function returnBattleToPractice(){
+  if(currentBattleSession?.trialMode){returnBattleToTrial();return;}
   clearCardUseConfirmation(false);
   closeCardInfo();
   closeGraveViewer();
@@ -6942,6 +7363,12 @@ function handlePracticeStart(){
   showMenuNotice(`${PRACTICE_LEVELS[selectedPracticeIndex].name}のバトルは次の実装で接続します`);
 }
 
+document.getElementById('trialMainBackBtn').addEventListener('click',closeTrialMode);
+document.getElementById('trialOwnerBackBtn').addEventListener('click',backTrialOwnerDeck);
+trialCardSearch.addEventListener('input',renderTrialBuilder);
+trialCardSort.addEventListener('change',renderTrialBuilder);
+trialBattleStartBtn.addEventListener('click',startTrialPrebattle);
+
 document.getElementById('practiceMainBackBtn').addEventListener('click',closePracticeMode);
 practiceStartBtn.addEventListener('click',handlePracticeStart);
 
@@ -6963,12 +7390,12 @@ const PACK_DATABASE=[{
   no:1,
   name:'八潮スターター',
   subtitle:'YASHIO STARTER',
+  artLabel:'八潮',
   cardNos:[1,2,3,4,5,6,7,8,9,10,11,12],
 
   // 後からここだけ変更すればピックアップを差し替えられる。
   pickupNo:4,
 
-  // 指定された目安を基準に、SRを少し低めにした設定。
   // C 60 / UC 24 / R 12 / SR 4 = 100%。
   rarityRates:{C:60,UC:24,R:12,SR:4},
 
@@ -6979,6 +7406,28 @@ const PACK_DATABASE=[{
   pointsPerPack:10,
   pointCap:500,
   description:'第一弾パック。No.001〜012の12種類を収録。'
+},{
+  id:'daichu-fight',
+  no:2,
+  name:'大中ファイト',
+  subtitle:'DAICHU FIGHT',
+  artLabel:'大中',
+
+  // No.001「ただの人」〜 No.020「黄金のPARASITE」をすべて収録。
+  cardNos:Array.from({length:20},(_,i)=>i+1),
+  pickupNo:20,
+
+  // SRを2%に設定。残り98%は第一弾のC/UC/R比率(60:24:12)を維持して按分。
+  // C 61.25 / UC 24.50 / R 12.25 / SR 2.00 = 100%。
+  rarityRates:{C:61.25,UC:24.5,R:12.25,SR:2},
+
+  cardsPerPack:5,
+  singleCost:5,
+  multiPackCount:11,
+  multiCost:50,
+  pointsPerPack:10,
+  pointCap:500,
+  description:'第二弾パック。No.001〜020の20種類を収録。SR排出率は2%。'
 }];
 
 let selectedPackId=null;
@@ -7015,7 +7464,7 @@ function renderPackList(){
     const state=currentPlayerData?getPackState(pack):{points:0};
     const pickup=CARD_BY_NO.get(String(pack.pickupNo));
     const tile=document.createElement('button');tile.type='button';tile.className='pack-tile';
-    tile.innerHTML=`<div class="pack-art"><div class="pack-art-logo"><strong>八潮</strong><small>PRISON KING // SERIES 01</small></div></div>
+    tile.innerHTML=`<div class="pack-art"><div class="pack-art-logo"><strong>${escapeHtml(pack.artLabel||pack.name)}</strong><small>PRISON KING // SERIES ${String(pack.no).padStart(2,'0')}</small></div></div>
       <span class="pack-title">${escapeHtml(pack.name)}</span>
       <span class="pack-sub">${escapeHtml(pack.subtitle)}</span>
       <span class="pack-meta"><span><b>${cards.length}</b> CARDS</span><span>PACK No.${String(pack.no).padStart(2,'0')}</span></span>
@@ -7822,6 +8271,11 @@ const MODE_INFO={
     desc:'超初級から神級まで6段階でバトルを練習します。',
     status:'TRAINING // 6 DIFFICULTY LEVELS'
   },
+  trial:{
+    title:'お試し対戦',en:'TRIAL MATCH',
+    desc:'持ち主は保存デッキを使用し、ゲストは現在のパック収録カードからその場でデッキを組んでローカル対戦します。',
+    status:'LOCAL 2 PLAYERS // TEMPORARY GUEST DECK'
+  },
   event:{
     title:'イベント',en:'EVENT MODE',
     desc:'BOSSラッシュ、戦歴、タスクボードなどの期間・特殊コンテンツに挑戦します。',
@@ -7876,6 +8330,7 @@ function closeAllModeScreens(){
   prebattleScreen.classList.remove('active');
   battleScreen.classList.remove('active');
   practiceScreen.classList.remove('active');
+  trialScreen.classList.remove('active');
   collectionScreen.classList.remove('active');
   deckScreen.classList.remove('active');
   packScreen.classList.remove('active');
@@ -7916,6 +8371,10 @@ document.querySelectorAll('.mode-btn').forEach(btn=>{
     }
     if(mode==='practice'){
       openPracticeMode();
+      return;
+    }
+    if(mode==='trial'){
+      openTrialMode();
       return;
     }
     if(mode==='collection'){
@@ -8450,6 +8909,9 @@ resolveEndStep=function(){
       yanagii.lastYanagiiLossOwnerTurn=getOwnerTurn(owner);
       battleLogAdd('ヤナギーの天空竜 // 山札0枚による敗北を無効化（次回は3ターン後）');
       tickEffectLock(owner);
+      if(currentBattleSession.trialMode){
+        swapTrialPerspective();renderBattle();showTurnIntro('player',()=>{if(currentBattleSession&&!currentBattleSession.over)beginTurn('player')});return;
+      }
       const next=owner==='player'?'enemy':'player';beginTurn(next);if(next==='enemy')runCpuTurn();return;
     }
   }
