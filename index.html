@@ -4289,6 +4289,7 @@ button,input,select{touch-action:manipulation}
               <li>同じステージの<strong>2回目以降のクリア報酬は小松菜1個</strong>です。</li>
               <li>超初級CPUは、<strong>《ただの人》40枚の専用デッキ</strong>を使用します。</li>
               <li>初級CPUは、<strong>《ただの人》22枚、《強い人》3枚、《陽気な人》3枚、《Deoxyribo Nucleic Acid》3枚、《UN〇!》3枚、《ただの馬》3枚、《ガルモン》3枚</strong>の40枚デッキを使用します。</li>
+              <li>中級CPUは、<strong>《ボス》《梅原》《先輩の圧力》《ホーリーアーチャー》などを採用した40枚の専用デッキ</strong>を使用します。</li>
             </ul>
           </section>
 
@@ -5420,7 +5421,7 @@ const BATTLE_PHASE_LABELS={
   end:'END STEP'
 };
 const STARTER_CARD_NOS=new Set([1,2,3,4,5,6,7,8,9,10,11,12]);
-const STARTER_COUNT_COST={4:2,8:1,9:1,11:1,16:2,20:2,25:1};
+const STARTER_COUNT_COST={4:2,8:1,9:1,11:1,16:2,20:2,25:1,29:1,35:1};
 const BATTLE_TYPES=['人タイプ','神タイプ','クリーチャータイプ','道具タイプ','空タイプ'];
 
 const PRACTICE_CPU_CONFIG={
@@ -7356,7 +7357,9 @@ function returnBattleToPractice(){
 }
 function handlePracticeStart(){
   if(selectedPracticeIndex===null)return;
-  if(selectedPracticeIndex===0||selectedPracticeIndex===1){
+  // CPUデッキ設定が存在する難度は、そのまま共通の対戦フローへ接続する。
+  // 現在は超初級・初級・中級がプレイ可能。
+  if(getPracticeCpuConfig(selectedPracticeIndex)){
     openPracticeBattleDeckSelect();
     return;
   }
